@@ -1,0 +1,44 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare public site artifact
+        run: |
+          mkdir -p .pages-artifact
+          rsync -a --delete \
+            --prune-empty-dirs \
+            --include '/index.html' \
+            --include '/assets/***' \
+            --include '/CNAME' \
+            --include '/.nojekyll' \
+            --include '/robots.txt' \
+            --include '/sitemap.xml' \
+            --include '/privacy.html' \
+            --include '/terms.html' \
+            --exclude '*' \
+            ./ .pages-artifact/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .pages-artifact
+      - id: deployment
+        uses: actions/deploy-pages@v4
