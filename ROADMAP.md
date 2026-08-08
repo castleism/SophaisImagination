@@ -7,8 +7,12 @@ Status legend: [DONE] [READY] [BLOCKED — OWNER] [DELEGATE — OTHER AI]
 - [DONE] 2026-08-08 — Single-page site: hero, disclosure strip, promise, 10-concept gallery with lightbox, honest Music/"The Stage" section, three-word collaboration ritual, official links, footer, privacy, terms.
 - [DONE] 2026-08-08 — Web-optimized image set (16 files, ~1.9 MB total), OG image, favicons.
 - [DONE] 2026-08-08 — Pages workflow, CNAME, robots, sitemap, .nojekyll.
-- [READY] Owner: create GitHub repo, push, set Pages → GitHub Actions, point DNS (steps in README).
+- [DONE] 2026-08-08 — GitHub repo `castleism/SophaisImagination` created (public); Pages Source = GitHub Actions; custom domain sophais-imagination.com saved in Pages settings.
+- [DONE] 2026-08-08 — Cloudflare DNS: 4 apex A records (185.199.108-111.153) + www CNAME → castleism.github.io, all DNS-only (required for GitHub cert issuance). Local git remote wired; `_ops/push.ps1` helper added.
+- [DONE] 2026-08-08 — Owner pushed via `_ops/push.ps1`; Pages deploy #1 succeeded (23s); DNS check passed; Enforce HTTPS enabled; site verified live at https://sophais-imagination.com (hero, disclosure, gallery, all sections rendering).
 - [BLOCKED — OWNER] Verify Instagram/X handles are live + controlled before treating Official links as final.
+
+**v0.1 SHIPPED 2026-08-08.**
 
 ## v0.2 — Depth (after v0.1 is live)
 
