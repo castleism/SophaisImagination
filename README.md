@@ -28,9 +28,12 @@ Best practice AND free: static HTML on GitHub Pages with a custom domain — sam
 
 ## Structure
 
-- `index.html` — entire site (styles + JS inline)
+- `index.html` — main site (styles + JS inline)
+- `process.html` — art-direction notes per concept · `diary.html` — labeled-fiction character diary · `polls.html` — collaboration archive (honest zero-state) · `404.html`
 - `assets/img/` — web-optimized derivatives of the approved champagne-gold launch set (source: MyPersonas repo `outputs/sophia-social-launch-2026-08-08/`)
 - `privacy.html`, `terms.html`, `robots.txt`, `sitemap.xml`, `CNAME`, `.nojekyll`
-- `.github/workflows/pages.yml` — Pages deploy on push to `main`
+- `docs/DELEGATION-BRIEFS.md` — briefs for other AI models (v0.3, owner-gated)
+- `.github/workflows/pages.yml` — Pages deploy on push to `main` (allowlist — add new public files here)
+- `_ops/push.ps1` — owner push helper
 
 See `ROADMAP.md` for planned work and `CHANGELOG.md` for history.
