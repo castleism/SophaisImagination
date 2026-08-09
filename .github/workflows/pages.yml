@@ -28,6 +28,10 @@ jobs:
           rsync -a --delete \
             --prune-empty-dirs \
             --include '/index.html' \
+            --include '/process.html' \
+            --include '/diary.html' \
+            --include '/polls.html' \
+            --include '/404.html' \
             --include '/assets/***' \
             --include '/CNAME' \
             --include '/.nojekyll' \
