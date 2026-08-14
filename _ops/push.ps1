@@ -57,8 +57,10 @@ if ($LockCandidates.Count -gt 0 -and $ClearStaleLocks) {
     }
 }
 
-$LocalEmail = (git config --local --get user.email 2>$null | Select-Object -First 1)
-if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($LocalEmail)) {
+$LocalEmailValues = @(git config --local --get user.email 2>$null)
+$LocalEmailExitCode = $LASTEXITCODE
+$LocalEmail = $LocalEmailValues | Select-Object -First 1
+if ($LocalEmailExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($LocalEmail)) {
     throw @"
 No repository-local Git email is configured. Set the GitHub noreply address first:
   git config --local user.email "68042811+castleism@users.noreply.github.com"
@@ -69,8 +71,10 @@ if ($LocalEmail -notmatch '^[^@\s]+@users\.noreply\.github\.com$') {
     throw "Repository-local user.email must use a GitHub noreply address. The configured address was not printed."
 }
 
-$CurrentBranch = (git branch --show-current 2>$null | Select-Object -First 1)
-if ($LASTEXITCODE -ne 0 -or $CurrentBranch.Trim() -ne "main") {
+$CurrentBranchValues = @(git branch --show-current 2>$null)
+$CurrentBranchExitCode = $LASTEXITCODE
+$CurrentBranch = $CurrentBranchValues | Select-Object -First 1
+if ($CurrentBranchExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($CurrentBranch) -or $CurrentBranch.Trim() -ne "main") {
     throw "This helper only verifies and publishes refs/heads/main. Switch to main first."
 }
 
