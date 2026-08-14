@@ -33,6 +33,9 @@
   a:hover{color:var(--ivory)}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
   .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-180%);background:var(--champagne);color:var(--midnight);font-weight:600;padding:10px 16px;border-radius:3px;transition:transform .15s}
+  .skip-link:focus{transform:translateY(0);color:var(--midnight)}
+  #main-content:focus{outline:none}
   header{position:sticky;top:0;z-index:50;background:rgba(12,16,33,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,188,130,.14)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
   .wordmark{font-family:var(--serif);font-size:1.35rem;color:var(--ivory)}
@@ -47,6 +50,7 @@
   .entry{display:grid;grid-template-columns:260px 1fr;gap:32px;padding:56px 0;border-bottom:1px solid rgba(245,239,226,.07)}
   @media(max-width:720px){.entry{grid-template-columns:1fr}}
   .entry .imgbox{position:relative}
+  .entry picture{display:block}
   .entry img{border:1px solid rgba(220,188,130,.2);border-radius:6px}
   .ai-tag{position:absolute;top:10px;left:10px;background:rgba(12,16,33,.78);border:1px solid var(--gold-soft);color:var(--champagne);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
   .entry h2{font-size:1.7rem;margin-bottom:4px}
@@ -56,19 +60,21 @@
   dd{color:var(--muted);font-size:.94rem}
   footer{padding:44px 0 56px;border-top:1px solid rgba(220,188,130,.14);margin-top:40px}
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
-  .foot a{margin-left:18px}
+  .foot nav{display:flex;gap:8px 18px;flex-wrap:wrap}
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content" onclick="document.getElementById('main-content').focus()">Skip to main content</a>
+
 <header>
-  <div class="wrap nav">
+  <nav class="wrap nav" aria-label="Page">
     <a class="wordmark" href="index.html">Sophia's <em>Imagination</em></a>
     <a class="back" href="index.html#concepts">← Back to the worlds</a>
-  </div>
+  </nav>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <div class="wrap hero">
     <p class="kicker">The Process</p>
     <h1>How a synthetic muse is art-directed</h1>
@@ -82,7 +88,7 @@
 <footer>
   <div class="wrap foot">
     <p>Sophia's Imagination is a fictional, AI-created character with a human owner-editor. All imagery is disclosed synthetic media.</p>
-    <p><a href="index.html">Home</a><a href="diary.html">Diary</a><a href="polls.html">Collaborations</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></p>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="diary.html">Diary</a><a href="polls.html">Collaborations</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
 
@@ -137,7 +143,10 @@ notes.forEach(({f,t,s,seed,design,kept}) => {
   el.innerHTML = `
     <div class="imgbox">
       <span class="ai-tag">AI concept</span>
-      <img src="assets/img/${f}" alt="${t} — AI-created visual concept of Sophia, a fictional synthetic character" loading="lazy" width="800" height="1067">
+      <picture>
+        <source srcset="assets/img/${f.replace(/\.jpg$/i, '.webp')}" type="image/webp">
+        <img src="assets/img/${f}" alt="${t} — AI-created visual concept of Sophia, a fictional synthetic character" loading="lazy" width="800" height="1067">
+      </picture>
     </div>
     <div>
       <h2>${t}</h2>

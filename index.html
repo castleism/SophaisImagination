@@ -53,6 +53,9 @@
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
 
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-180%);background:var(--champagne);color:var(--midnight);font-weight:600;padding:10px 16px;border-radius:3px;transition:transform .15s}
+  .skip-link:focus{transform:translateY(0);color:var(--midnight)}
+  #main-content:focus{outline:none}
 
   /* Header */
   header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(12,16,33,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,188,130,.14)}
@@ -72,7 +75,8 @@
 
   /* Hero */
   .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;background:url('assets/img/hero.jpg') center 22%/cover no-repeat}
+  .hero-media{position:absolute;inset:0}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,16,33,.55) 0%,rgba(12,16,33,.15) 40%,rgba(12,16,33,.92) 88%,var(--midnight) 100%)}
   .hero-inner{position:relative;z-index:2;width:100%;padding:140px 0 72px}
   .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold-soft);background:rgba(12,16,33,.55);color:var(--champagne);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:999px;margin-bottom:22px}
@@ -113,23 +117,27 @@
   /* Concepts */
   #concepts{background:var(--midnight-2)}
   .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px;margin-top:48px}
-  .concept{background:var(--midnight);border:1px solid rgba(220,188,130,.12);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform .3s,border-color .3s}
-  .concept:hover{transform:translateY(-4px);border-color:var(--gold-soft)}
+  .concept{background:var(--midnight);border:1px solid rgba(220,188,130,.12);border-radius:6px;overflow:hidden;transition:transform .3s,border-color .3s}
+  .concept:hover,.concept:focus-within{transform:translateY(-4px);border-color:var(--gold-soft)}
   .concept .imgbox{position:relative;aspect-ratio:3/4;overflow:hidden}
+  .concept-trigger{display:block;width:100%;height:100%;padding:0;border:0;background:none;color:inherit;cursor:pointer}
+  .concept-trigger:focus-visible{outline:3px solid var(--champagne);outline-offset:-5px}
+  .concept picture{display:block;width:100%;height:100%}
   .concept img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .concept:hover img{transform:scale(1.04)}
   .ai-tag{position:absolute;top:10px;left:10px;background:rgba(12,16,33,.78);border:1px solid var(--gold-soft);color:var(--champagne);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
   .concept .meta{padding:18px 18px 20px}
   .concept h3{font-size:1.25rem;margin-bottom:8px}
   .concept p{font-size:.85rem;color:var(--muted);line-height:1.55}
-  .concept .series-tag{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .concept .series-tag{display:block;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
   .deeper{display:flex;gap:16px;flex-wrap:wrap;margin-top:44px;justify-content:center}
   .deeper a{border:1px solid var(--gold-soft);border-radius:999px;padding:11px 24px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--champagne)}
   .deeper a:hover{border-color:var(--champagne);color:var(--ivory)}
 
   /* Music */
   .stage{position:relative;border:1px solid var(--gold-soft);border-radius:8px;overflow:hidden;margin-top:48px}
-  .stage::before{content:"";position:absolute;inset:0;background:url('assets/img/wide-transparency.jpg') center/cover no-repeat;opacity:.22}
+  .stage-media{position:absolute;inset:0;opacity:.22}
+  .stage-media img{width:100%;height:100%;object-fit:cover}
   .stage-inner{position:relative;padding:64px 40px;max-width:720px}
   @media(max-width:600px){.stage-inner{padding:44px 24px}}
   .stage h3{font-size:2rem;color:var(--champagne);margin-bottom:16px}
@@ -154,8 +162,8 @@
   footer{border-top:1px solid rgba(220,188,130,.14);padding:44px 0 56px;background:var(--midnight)}
   .foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
   .foot-disclosure{max-width:540px;font-size:.82rem;color:var(--muted)}
-  .foot-links{display:flex;gap:22px;font-size:.82rem;align-items:flex-start}
-  .copyright{margin-top:26px;font-size:.78rem;color:rgba(245,239,226,.4)}
+  .foot-links{display:flex;gap:12px 22px;flex-wrap:wrap;font-size:.82rem;align-items:flex-start}
+  .copyright{margin-top:26px;font-size:.78rem;color:var(--muted)}
 
   /* Lightbox */
   .lightbox{position:fixed;inset:0;background:rgba(8,10,20,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:32px}
@@ -173,11 +181,13 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content" onclick="document.getElementById('main-content').focus()">Skip to main content</a>
+
 <header>
   <div class="wrap nav">
     <a class="wordmark" href="#top">Sophia's <em>Imagination</em></a>
     <nav aria-label="Main">
-      <button class="menu-btn" aria-expanded="false" aria-controls="navlist" onclick="toggleMenu()">☰</button>
+      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navlist" onclick="toggleMenu()">☰</button>
       <ul id="navlist">
         <li><a href="#about">The Promise</a></li>
         <li><a href="#concepts">Concepts</a></li>
@@ -189,10 +199,14 @@
   </div>
 </header>
 
-<main id="top">
+<main id="main-content" tabindex="-1">
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero" id="top">
+    <picture class="hero-media" aria-hidden="true">
+      <source srcset="assets/img/hero.webp" type="image/webp">
+      <img src="assets/img/hero.jpg" alt="" width="1600" height="900" fetchpriority="high">
+    </picture>
     <div class="wrap hero-inner">
       <span class="chip">Honestly synthetic — an AI-created character</span>
       <h1>Sophia's Imagination</h1>
@@ -264,6 +278,10 @@
       <p class="kicker">The Stage</p>
       <h2 class="section-title">A debut, designed in the open</h2>
       <div class="stage">
+        <picture class="stage-media" aria-hidden="true">
+          <source srcset="assets/img/wide-transparency.webp" type="image/webp">
+          <img src="assets/img/wide-transparency.jpg" alt="" width="1200" height="675" loading="lazy">
+        </picture>
         <div class="stage-inner">
           <h3>No song has been released yet — and Sophia will never pretend otherwise.</h3>
           <p>The pop-icon lane is visual for now: stagecraft, couture, imagined arenas, and the slow design of a voice worth waiting for. When Sophia sings, it will be original, licensed, clearly labeled as synthetic, and released somewhere you can verify it.</p>
@@ -327,10 +345,13 @@
 </footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="if(event.target===this)closeLightbox()">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true" onclick="if(event.target===this)closeLightbox()">
   <button class="close" aria-label="Close" onclick="closeLightbox()">×</button>
   <figure>
-    <img id="lb-img" src="" alt="">
+    <picture>
+      <source id="lb-source" srcset="" type="image/webp">
+      <img id="lb-img" src="" alt="">
+    </picture>
     <figcaption id="lb-cap"></figcaption>
   </figure>
 </div>
@@ -355,35 +376,88 @@ concepts.forEach(({f,t,s,c}) => {
   el.className = 'concept';
   el.innerHTML = `
     <div class="imgbox">
-      <span class="ai-tag">AI concept</span>
-      <img src="assets/img/${f}" alt="${t} — AI-created visual concept of Sophia, a fictional synthetic character" loading="lazy" width="800" height="1067">
+      <button class="concept-trigger" type="button" aria-haspopup="dialog" aria-label="View ${t} in the image viewer">
+        <span class="ai-tag">AI concept</span>
+        <picture>
+          <source srcset="assets/img/${f.replace(/\.jpg$/i, '.webp')}" type="image/webp">
+          <img src="assets/img/${f}" alt="${t} — AI-created visual concept of Sophia, a fictional synthetic character" loading="lazy" width="800" height="1067">
+        </picture>
+      </button>
     </div>
-    <div class="meta"><p class="series-tag">${s}</p><h3>${t}</h3><p>${c}</p></div>`;
-  el.addEventListener('click', () => openLightbox(`assets/img/${f}`, `${t} — ${c}`));
+    <div class="meta"><span class="series-tag">${s}</span><h3>${t}</h3><p>${c}</p></div>`;
+  const trigger = el.querySelector('.concept-trigger');
+  trigger.addEventListener('click', () => openLightbox(`assets/img/${f}`, `${t} — ${c}`, trigger));
   gallery.appendChild(el);
 });
 
-function openLightbox(src, cap){
+const lightbox = document.getElementById('lightbox');
+const lightboxClose = lightbox.querySelector('.close');
+const lightboxBackground = [...document.body.children].filter(element => element !== lightbox && element.tagName !== 'SCRIPT');
+const navList = document.getElementById('navlist');
+const menuButton = document.querySelector('.menu-btn');
+let lightboxReturnTarget = null;
+
+function setLightboxBackgroundInert(isInert){
+  lightboxBackground.forEach(element => element.toggleAttribute('inert', isInert));
+}
+
+function openLightbox(src, cap, returnTarget){
+  lightboxReturnTarget = returnTarget || document.activeElement;
+  document.getElementById('lb-source').srcset = src.replace(/\.jpg$/i, '.webp');
   document.getElementById('lb-img').src = src;
   document.getElementById('lb-img').alt = cap;
   document.getElementById('lb-cap').textContent = cap;
-  document.getElementById('lightbox').classList.add('open');
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  setLightboxBackgroundInert(true);
+  lightboxClose.focus();
 }
 function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
+  if(!lightbox.classList.contains('open')) return;
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  setLightboxBackgroundInert(false);
+  if(lightboxReturnTarget && document.contains(lightboxReturnTarget)) lightboxReturnTarget.focus();
+  lightboxReturnTarget = null;
 }
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+document.addEventListener('keydown', event => {
+  if(lightbox.classList.contains('open')){
+    if(event.key === 'Escape'){
+      event.preventDefault();
+      closeLightbox();
+      return;
+    }
+    if(event.key === 'Tab'){
+      const focusable = [...lightbox.querySelectorAll('button:not([disabled]),a[href],[tabindex]:not([tabindex="-1"])')];
+      if(!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if(event.shiftKey && document.activeElement === first){
+        event.preventDefault();
+        last.focus();
+      }else if(!event.shiftKey && document.activeElement === last){
+        event.preventDefault();
+        first.focus();
+      }
+    }
+    return;
+  }
+  if(event.key === 'Escape' && navList.classList.contains('open')){
+    navList.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.focus();
+  }
+});
 
 function toggleMenu(){
-  const ul = document.getElementById('navlist');
-  const btn = document.querySelector('.menu-btn');
-  ul.classList.toggle('open');
-  btn.setAttribute('aria-expanded', ul.classList.contains('open'));
+  navList.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', navList.classList.contains('open'));
 }
 document.querySelectorAll('#navlist a').forEach(a => a.addEventListener('click', () => {
-  document.getElementById('navlist').classList.remove('open');
+  navList.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
 }));
 
 document.getElementById('year').textContent = new Date().getFullYear();

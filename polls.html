@@ -32,6 +32,9 @@
   a:hover{color:var(--ivory)}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
   .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-180%);background:var(--champagne);color:var(--midnight);font-weight:600;padding:10px 16px;border-radius:3px;transition:transform .15s}
+  .skip-link:focus{transform:translateY(0);color:var(--midnight)}
+  #main-content:focus{outline:none}
   header{position:sticky;top:0;z-index:50;background:rgba(12,16,33,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,188,130,.14)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
   .wordmark{font-family:var(--serif);font-size:1.35rem;color:var(--ivory)}
@@ -52,23 +55,25 @@
   .step h3{font-size:1.15rem;margin-bottom:8px;color:var(--pearl)}
   .step p{font-size:.88rem;color:var(--muted)}
   .rules{border-left:2px solid var(--gold);padding-left:18px;max-width:640px;margin-bottom:72px}
-  .rules h3{color:var(--champagne);font-size:1.2rem;margin-bottom:10px}
+  .rules h2{color:var(--champagne);font-size:1.2rem;margin-bottom:10px}
   .rules p{font-size:.9rem;color:var(--muted);margin-bottom:8px}
   footer{padding:44px 0 56px;border-top:1px solid rgba(220,188,130,.14)}
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
-  .foot a{margin-left:18px}
+  .foot nav{display:flex;gap:8px 18px;flex-wrap:wrap}
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content" onclick="document.getElementById('main-content').focus()">Skip to main content</a>
+
 <header>
-  <div class="wrap nav">
+  <nav class="wrap nav" aria-label="Page">
     <a class="wordmark" href="index.html">Sophia's <em>Imagination</em></a>
     <a class="back" href="index.html#collaborate">← Back to collaborate</a>
-  </div>
+  </nav>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <div class="wrap hero">
     <p class="kicker">The Archive</p>
     <h1>Collaboration archive</h1>
@@ -92,7 +97,7 @@
     </div>
 
     <div class="rules">
-      <h3>Archive rules</h3>
+      <h2>Archive rules</h2>
       <p>Only real votes with real counts are recorded. No engagement is ever purchased, pooled, or faked.</p>
       <p>Seeds that require real people's likenesses, brands, franchises, or anything outside Sophia's content boundaries are declined with thanks.</p>
       <p>The archive is append-only: past results are never edited to look better.</p>
@@ -103,7 +108,7 @@
 <footer>
   <div class="wrap foot">
     <p>Sophia's Imagination is a fictional, AI-created character with a human owner-editor. All imagery is disclosed synthetic media.</p>
-    <p><a href="index.html">Home</a><a href="process.html">Process</a><a href="diary.html">Diary</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></p>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="process.html">Process</a><a href="diary.html">Diary</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
 

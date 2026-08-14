@@ -14,7 +14,7 @@ Status legend: [DONE] [READY] [BLOCKED — OWNER] [DELEGATE — OTHER AI]
 
 **v0.1 SHIPPED 2026-08-08.**
 
-## v0.2 — Depth — BUILT 2026-08-09, awaiting owner push to deploy
+## v0.2 — Depth — SHIPPED 2026-08-09
 
 - [DONE] Process page (`process.html`): art-direction notes for all 10 concepts (seed language / design notes / what was kept / formats). Honest framing: design notes, not machine logs; provenance stays owner-archived.
 - [DONE] Character diary (`diary.html`): 3 entries in Sophia's voice, "Labeled fiction" chip, per-entry honesty asides; Entry One expands the staged "Character Diary One" concept.
@@ -25,6 +25,19 @@ Status legend: [DONE] [READY] [BLOCKED — OWNER] [DELEGATE — OTHER AI]
 - [OWNER — next push] Repo docs (README/ROADMAP/CHANGELOG/docs/) ride along with the next `.\_ops\push.ps1`.
 
 **v0.2 SHIPPED 2026-08-09.**
+
+## v0.2.1 — Accessibility and performance — BUILT LOCALLY 2026-08-13, not published
+
+- [DONE — LOCAL] Accessibility: skip links on all four pages with repeated headers; labeled page/footer navigation landmarks; one main landmark per public page; corrected archive heading level.
+- [DONE — LOCAL] Gallery/lightbox: each image now has a native keyboard-operable button; opening moves focus into the modal; Tab and Shift+Tab stay inside; background content becomes inert; close button, Escape, and backdrop close all return focus to the exact trigger.
+- [DONE — LOCAL] Contrast: `--muted` verified at 6.85:1 or better on the site's solid surfaces; the separate 3.47:1 copyright color now uses `--muted` and passes normal-text AA.
+- [DONE — LOCAL] Performance: WebP counterparts for the hero, stage image, and 10 gallery images, with all JPEG fallbacks preserved. Modern-browser payload for those 12 images falls from 1,744,505 bytes to 1,197,134 bytes (31.4% smaller).
+- [DONE — LOCAL] Semantics/responsive QA: gallery series labels changed from paragraphs to block-displayed spans; phone-width footer overflow fixed on Home, Process, Diary, and Archive.
+- [VERIFIED] Local browser QA at 320, 768, and 1440 CSS pixels; all seven pages retain one H1/main, expected content counts, disclosure/no-release language, and zero console errors. WebP selection, skip target activation, modal focus trap/return, mobile-menu state, and no horizontal overflow verified.
+- [BLOCKED — OWNER] Instagram card remains absent. Fresh public check on 2026-08-13 still returned “page isn't available” for `@sophais.imagination`.
+- [OWNER — PUBLISH] Commit and push the local v0.2.1 changes when ready. The Pages allowlist already includes `assets/***`; no workflow edit is required.
+
+**v0.2.1 IS COMPLETE LOCALLY AND HAS NOT BEEN PUBLISHED.**
 
 ## v0.3 — The debut (all BLOCKED — OWNER until real assets exist)
 
