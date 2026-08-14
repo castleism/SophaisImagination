@@ -1,0 +1,25 @@
+name: Verify live site health
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 15 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-health
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Compare live site with committed public artifact
+        run: python3 scripts/check_live.py --attempts 2 --delay 5

@@ -1,6 +1,16 @@
 # Changelog — sophais-imagination.com
 
-## 2026-08-13 — v0.2.1 (built locally, not published)
+## 2026-08-13 — v0.2.2 (built; release verification pending)
+
+- Privacy/resilience: replaced Google Fonts requests with three self-hosted Latin WOFF2 subsets (125,156 bytes total), preserved exact weight/style matching, and included both SIL OFL 1.1 license texts plus source hashes.
+- Provenance: added a public-safe explanation page and machine-readable record of filename, format, dimensions, byte size, and SHA-256 for every public media derivative in the candidate. The copy explicitly distinguishes byte identity from private source records, rights, and content credentials.
+- Correctness/accessibility: corrected the diary's premature vote wording; added factual concept-specific image descriptions; expanded visible-focus and reduced-motion support; tightened dialog/footer semantics; added async image decoding where safe.
+- Metadata/privacy: completed Open Graph/Twitter image metadata, added a no-referrer policy, and added a practical same-origin meta CSP compatible with current inline styles/scripts.
+- Deployment safety: introduced one public artifact manifest and zero-dependency source/live verifiers; split build/deploy permissions; pinned official GitHub actions to immutable release SHAs; preserved `.nojekyll`; added timeouts and a main-only weekly/manual live-health check.
+- Repository privacy: set the local author to GitHub noreply, added future-author/privacy checks, stopped automatic Git-lock deletion, and sanitized current public documentation. Older public commits still require a separately approved history rewrite if they are to be removed.
+- Operations: added a release checklist and empty evidence-first collaboration record template. Prepared a separate local social decision sheet without altering approval, queue, pause, account, or publishing state.
+
+## 2026-08-13 — v0.2.1 DEPLOYED
 
 - Accessibility: added visible-on-focus skip links to Home, Process, Diary, and Collaboration Archive; added/cleaned main, page-navigation, and footer-navigation landmarks across all seven public pages; corrected the Archive rules heading level.
 - Gallery/lightbox: replaced mouse-only card activation with native image buttons; added initial focus, Tab/Shift+Tab containment, inert background content, Escape handling, and exact-trigger focus restoration on every close path.
@@ -8,9 +18,9 @@
 - Responsive: fixed footer-link horizontal overflow on Home, Process, Diary, and Collaboration Archive at 320 CSS pixels; tablet (768) and desktop (1440) layouts remained clean.
 - Performance: added 12 WebP alternatives (hero, stage, 10 concepts) at unchanged dimensions with JPEG fallbacks. Representative hero/gallery pairs were visually compared and all 12 passed dimension/format checks. They total 1,197,134 bytes as WebP versus 1,744,505 bytes as JPEG, a 547,371-byte / 31.4% reduction for supporting browsers. OG, avatar, favicon, and touch icon formats are unchanged.
 - Semantics: gallery series labels now render as block-displayed `<span>` elements before each preserved H3; Process images also use `<picture>` without changing public copy.
-- Deploy boundary: `.github/workflows/pages.yml` already includes `assets/***`, so the new WebPs require no allowlist change. No commit, push, Pages deploy, social post, music generation, or account change was performed.
+- Deploy boundary: `.github/workflows/pages.yml` included `assets/***`, so the new WebPs required no allowlist change.
 - Live state rechecked 2026-08-13: HTTPS redirects and all seven public pages are healthy; Instagram `@sophais.imagination` remains unavailable publicly; X `@Sophai_imagines` remains at 0 posts and 0 followers.
-- Verification: browser DOM/console checks on all seven pages; skip target activation; keyboard checks for lightbox focus containment/return, Escape/close behavior, and mobile menu state; responsive overflow checks at 320/768/1440; WebP selection and fallback dimensions; workflow YAML, sitemap XML, local-reference, JavaScript syntax, and `git diff --check` checks.
+- Verification: source commit `dbb2af8`; GitHub Pages run #11 succeeded. All seven then-public HTML files and sampled WebPs matched live. Browser DOM/console checks covered skip target activation, lightbox focus containment/return, Escape/close behavior, mobile menu state, overflow at 320/768/1440, WebP selection, workflow YAML, sitemap XML, local references, JavaScript syntax, and `git diff --check`.
 
 ## 2026-08-09 — v0.2.0 DEPLOYED (overnight, owner-approved autonomy)
 
@@ -34,8 +44,8 @@
 
 ## 2026-08-08 — v0.1.0 (initial build)
 
-- Built complete single-page SFW pop-icon site: hero (Meet Sophia 16:9), always-visible synthetic-media disclosure strip, "What is real / What is fiction" promise cards, 10-concept gallery (approved launch-pack captions) with lightbox, honest no-releases-yet Music section, three-word collaboration ritual, official-links section with anti-impersonation note, privacy and terms pages.
+- Built complete single-page SFW pop-icon site: hero (Meet Sophia 16:9), always-visible synthetic-media disclosure strip, "What is real / What is fiction" promise cards, 10-concept gallery (selected review-package captions) with lightbox, honest no-releases-yet Music section, three-word collaboration ritual, official-links section with anti-impersonation note, privacy and terms pages.
 - Name stylization locked for this site: **Sophia's Imagination** (owner choice, 2026-08-08).
-- Owner choices: new repo + GitHub Pages; concept-era honest music framing; no 18+ linkage anywhere on site.
-- Assets: 16 web derivatives generated from MyPersonas launch set (gallery 800×1067, hero 1600×900, OG 1200×630, favicon/touch icons from avatar). Sources unchanged in MyPersonas repo.
-- Infra: GitHub Actions Pages workflow (allowlist artifact rsync, same pattern as MyPersonas), CNAME, robots.txt, sitemap.xml, .nojekyll, .gitignore.
+- Owner choices: new repo + GitHub Pages; concept-era honest music framing; general-audience public scope.
+- Assets: 16 initial web derivatives from the owner-provided review set (gallery 800×1067, hero 1600×900, OG 1200×630, favicon/touch icons from avatar). This historical site selection does not imply social-package or rights approval; source records remain in the owner's private archive.
+- Infra: GitHub Actions Pages workflow with an allowlisted artifact, CNAME, robots.txt, sitemap.xml, `.nojekyll`, and `.gitignore`.

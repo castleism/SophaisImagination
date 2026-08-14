@@ -1,0 +1,18 @@
+# Public GitHub Pages artifact.
+#
+# One repository-relative file or directory per line. Directories end in "/"
+# and are copied recursively. This is the single source of truth used by both
+# the verifier and the deployment workflow.
+.nojekyll
+404.html
+CNAME
+assets/
+diary.html
+index.html
+polls.html
+privacy.html
+process.html
+provenance.html
+robots.txt
+sitemap.xml
+terms.html

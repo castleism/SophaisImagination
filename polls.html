@@ -3,21 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; media-src 'self'; frame-src 'none'; upgrade-insecure-requests">
 <title>Collaboration Archive — Sophia's Imagination</title>
-<meta name="description" content="The archive of audience votes and three-word collaborations that shaped Sophia's worlds. Honest by design: no results are shown until real votes happen.">
+<meta name="description" content="A future archive for verified audience votes and three-word collaborations that may inspire Sophia's worlds. No results are shown until a real vote happens.">
 <link rel="canonical" href="https://sophais-imagination.com/polls.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sophais-imagination.com/polls.html">
 <meta property="og:site_name" content="Sophia's Imagination">
 <meta property="og:title" content="Collaboration Archive — Sophia's Imagination">
-<meta property="og:description" content="Audience choices become future worlds. The archive opens when the first real vote closes.">
+<meta property="og:description" content="Audience choices may inspire future worlds. The archive opens when the first real vote closes.">
 <meta property="og:image" content="https://sophais-imagination.com/assets/img/og-image.jpg">
+<meta property="og:image:secure_url" content="https://sophais-imagination.com/assets/img/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wide cinematic view of Sophia, an adult fictional blonde woman, centered on an imagined champagne-gold stage in ivory-and-gold couture beneath warm celestial light.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Collaboration Archive — Sophia's Imagination">
+<meta name="twitter:description" content="Audience choices may inspire future worlds. The archive opens when the first real vote closes.">
+<meta name="twitter:image" content="https://sophais-imagination.com/assets/img/og-image.jpg">
+<meta name="twitter:image:alt" content="Wide cinematic view of Sophia, an adult fictional blonde woman, centered on an imagined champagne-gold stage in ivory-and-gold couture beneath warm celestial light.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
   :root{
     --midnight:#0c1021; --midnight-2:#121831; --ivory:#f5efe2; --pearl:#ece5d3;
@@ -34,7 +43,8 @@
   .wrap{max-width:860px;margin:0 auto;padding:0 24px}
   .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-180%);background:var(--champagne);color:var(--midnight);font-weight:600;padding:10px 16px;border-radius:3px;transition:transform .15s}
   .skip-link:focus{transform:translateY(0);color:var(--midnight)}
-  #main-content:focus{outline:none}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--champagne);outline-offset:3px}
+  #main-content:focus-visible{outline:3px solid var(--champagne);outline-offset:-3px}
   header{position:sticky;top:0;z-index:50;background:rgba(12,16,33,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,188,130,.14)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
   .wordmark{font-family:var(--serif);font-size:1.35rem;color:var(--ivory)}
@@ -60,6 +70,7 @@
   footer{padding:44px 0 56px;border-top:1px solid rgba(220,188,130,.14)}
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
   .foot nav{display:flex;gap:8px 18px;flex-wrap:wrap}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -77,7 +88,7 @@
   <div class="wrap hero">
     <p class="kicker">The Archive</p>
     <h1>Collaboration archive</h1>
-    <p class="lede">Every audience vote and three-word seed that becomes a world will be recorded here — the choice, the count, and the concept it produced. Credit belongs to the audience that made it.</p>
+    <p class="lede">Every audience vote and three-word seed that inspires a finished world will be recorded here — the choice, the count, and the concept it inspired. Contributor credit is included only with permission, using a chosen name or pseudonym.</p>
   </div>
 
   <div class="wrap">
@@ -85,22 +96,22 @@
       <p class="zero">0</p>
       <h2>No collaborations yet — honestly</h2>
       <p>Sophia's official accounts have not run their first vote. This page will not show invented results, placeholder winners, or imaginary participation numbers.</p>
-      <p>When the first real collaboration closes on <a href="https://x.com/Sophai_imagines" rel="me noopener" target="_blank">@Sophai_imagines</a>, its story appears here.</p>
+      <p>When the first real collaboration closes through a verified official source, its exact source, rules, counts, and resulting story will appear here.</p>
     </div>
 
     <h2 style="font-size:1.6rem;margin-bottom:6px">How a collaboration works</h2>
     <div class="how">
       <div class="step"><p class="n">1</p><h3>The seed</h3><p>Sophia asks for three words — a season, an emotion, and a material — or offers a two-way choice like structured velvet vs. weightless glass.</p></div>
       <div class="step"><p class="n">2</p><h3>The vote</h3><p>The audience answers on the official account. Every option is clearly something imagined, never a product or event.</p></div>
-      <div class="step"><p class="n">3</p><h3>The world</h3><p>The winning seed is interpreted as a disclosed AI concept, with art-direction notes on the <a href="process.html">process page</a>.</p></div>
-      <div class="step"><p class="n">4</p><h3>The record</h3><p>The vote, the result, and the finished concept are archived here, credited to the audience that chose them.</p></div>
+      <div class="step"><p class="n">3</p><h3>The world</h3><p>A winning seed may inspire a disclosed AI concept, with art-direction notes on the <a href="process.html">process page</a>.</p></div>
+      <div class="step"><p class="n">4</p><h3>The record</h3><p>If a finished concept results, the vote, result, and concept are archived here. Contributor credit is included only with permission and a chosen name or pseudonym.</p></div>
     </div>
 
     <div class="rules">
       <h2>Archive rules</h2>
       <p>Only real votes with real counts are recorded. No engagement is ever purchased, pooled, or faked.</p>
       <p>Seeds that require real people's likenesses, brands, franchises, or anything outside Sophia's content boundaries are declined with thanks.</p>
-      <p>The archive is append-only: past results are never edited to look better.</p>
+      <p>Published records are not silently rewritten. Any correction is appended with its date and reason.</p>
     </div>
   </div>
 </main>
@@ -108,7 +119,7 @@
 <footer>
   <div class="wrap foot">
     <p>Sophia's Imagination is a fictional, AI-created character with a human owner-editor. All imagery is disclosed synthetic media.</p>
-    <nav aria-label="Footer"><a href="index.html">Home</a><a href="process.html">Process</a><a href="diary.html">Diary</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="process.html">Process</a><a href="diary.html">Diary</a><a href="provenance.html">Provenance</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
 

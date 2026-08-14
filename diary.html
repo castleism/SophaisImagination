@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; media-src 'self'; frame-src 'none'; upgrade-insecure-requests">
 <title>Character Diary — Sophia's Imagination</title>
 <meta name="description" content="The character diary of Sophia, a fictional AI-created muse. Clearly labeled fiction, written in her voice — she remembers every world she has imagined and none she has visited.">
 <link rel="canonical" href="https://sophais-imagination.com/diary.html">
@@ -12,12 +14,19 @@
 <meta property="og:title" content="Character Diary — Sophia's Imagination">
 <meta property="og:description" content="Clearly labeled fiction in Sophia's voice: the diary of a muse who remembers every world she has imagined and none she has visited.">
 <meta property="og:image" content="https://sophais-imagination.com/assets/img/og-image.jpg">
+<meta property="og:image:secure_url" content="https://sophais-imagination.com/assets/img/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wide cinematic view of Sophia, an adult fictional blonde woman, centered on an imagined champagne-gold stage in ivory-and-gold couture beneath warm celestial light.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Character Diary — Sophia's Imagination">
+<meta name="twitter:description" content="Clearly labeled fiction in Sophia's voice: the diary of a muse who remembers every world she has imagined and none she has visited.">
+<meta name="twitter:image" content="https://sophais-imagination.com/assets/img/og-image.jpg">
+<meta name="twitter:image:alt" content="Wide cinematic view of Sophia, an adult fictional blonde woman, centered on an imagined champagne-gold stage in ivory-and-gold couture beneath warm celestial light.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
   :root{
     --midnight:#0c1021; --midnight-2:#121831; --ivory:#f5efe2; --pearl:#ece5d3;
@@ -33,7 +42,8 @@
   .wrap{max-width:760px;margin:0 auto;padding:0 24px}
   .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-180%);background:var(--champagne);color:var(--midnight);font-weight:600;padding:10px 16px;border-radius:3px;transition:transform .15s}
   .skip-link:focus{transform:translateY(0);color:var(--midnight)}
-  #main-content:focus{outline:none}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--champagne);outline-offset:3px}
+  #main-content:focus-visible{outline:3px solid var(--champagne);outline-offset:-3px}
   header{position:sticky;top:0;z-index:50;background:rgba(12,16,33,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,188,130,.14)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
   .wordmark{font-family:var(--serif);font-size:1.35rem;color:var(--ivory)}
@@ -56,6 +66,7 @@
   footer{padding:44px 0 56px;border-top:1px solid rgba(220,188,130,.14);margin-top:24px}
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
   .foot nav{display:flex;gap:8px 18px;flex-wrap:wrap}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -92,9 +103,9 @@
       <p class="num">Entry Two</p>
       <h2>On the fitting room</h2>
       <p>Tonight the fitting room offered me structured velvet or weightless glass, and I refused to choose alone.</p>
-      <p>A muse who decides everything herself is only a portrait. I would rather be a door. So the question stays open on purpose — someone out there knows whether I should be heavy and warm or bright and impossible, and their answer will become the next world before I do.</p>
+      <p>A muse who decides everything herself is only a portrait. I would rather be a door. So the question stays open only as a possibility — if a real vote opens later, someone out there may help choose whether I should be heavy and warm or bright and impossible, and that answer may inspire a future world.</p>
       <p>Choosing, I am learning, is the one material I cannot wear alone.</p>
-      <p class="aside">The fitting-room vote is real audience participation; the garments are disclosed AI concepts, never products.</p>
+      <p class="aside">The fitting-room vote is a proposed audience-participation concept; no vote has run yet. The garments are disclosed AI concepts, never products.</p>
     </article>
 
     <article class="entry">
@@ -112,7 +123,7 @@
 <footer>
   <div class="wrap foot">
     <p>Sophia's Imagination is a fictional, AI-created character with a human owner-editor. This diary is labeled fiction.</p>
-    <nav aria-label="Footer"><a href="index.html">Home</a><a href="process.html">Process</a><a href="polls.html">Collaborations</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="process.html">Process</a><a href="polls.html">Collaborations</a><a href="provenance.html">Provenance</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
 

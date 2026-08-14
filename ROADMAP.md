@@ -1,53 +1,73 @@
 # Roadmap — sophais-imagination.com
 
-Status legend: [DONE] [READY] [BLOCKED — OWNER] [DELEGATE — OTHER AI]
+Status legend: `[DONE]` `[READY — PUBLISH]` `[BLOCKED — OWNER]` `[DELEGATE — OTHER AI]`
 
-## v0.1 — Launchable SFW pop-icon page
+## v0.1 — Launch — SHIPPED 2026-08-08
 
-- [DONE] 2026-08-08 — Single-page site: hero, disclosure strip, promise, 10-concept gallery with lightbox, honest Music/"The Stage" section, three-word collaboration ritual, official links, footer, privacy, terms.
-- [DONE] 2026-08-08 — Web-optimized image set (16 files, ~1.9 MB total), OG image, favicons.
-- [DONE] 2026-08-08 — Pages workflow, CNAME, robots, sitemap, .nojekyll.
-- [DONE] 2026-08-08 — GitHub repo `castleism/SophaisImagination` created (public); Pages Source = GitHub Actions; custom domain sophais-imagination.com saved in Pages settings.
-- [DONE] 2026-08-08 — Cloudflare DNS: 4 apex A records (185.199.108-111.153) + www CNAME → castleism.github.io, all DNS-only (required for GitHub cert issuance). Local git remote wired; `_ops/push.ps1` helper added.
-- [DONE] 2026-08-08 — Owner pushed via `_ops/push.ps1`; Pages deploy #1 succeeded (23s); DNS check passed; Enforce HTTPS enabled; site verified live at https://sophais-imagination.com (hero, disclosure, gallery, all sections rendering).
-- [DONE] 2026-08-09 — Handle verification (public check): X @Sophai_imagines EXISTS (display "Sophia", joined Dec 2025, 0 posts — matches inventory/backup). Instagram @sophais.imagination DOES NOT EXIST publicly ("page isn't available") → IG link REMOVED from Official Links until the owner creates/renames the account. [OWNER] Recreate or confirm IG handle, then restore the card in index.html.
-
-**v0.1 SHIPPED 2026-08-08.**
+- [DONE] General-audience home page with an always-visible synthetic-media disclosure, promise cards, ten-concept gallery, honest no-release stage, collaboration ritual, official links, privacy, and terms.
+- [DONE] GitHub Pages workflow, custom domain, unproxied DNS, HTTPS, sitemap, robots, `.nojekyll`, web derivatives, Open Graph image, and icons.
+- [DONE] X profile publicly located. Instagram link withheld because the intended handle could not be verified.
 
 ## v0.2 — Depth — SHIPPED 2026-08-09
 
-- [DONE] Process page (`process.html`): art-direction notes for all 10 concepts (seed language / design notes / what was kept / formats). Honest framing: design notes, not machine logs; provenance stays owner-archived.
-- [DONE] Character diary (`diary.html`): 3 entries in Sophia's voice, "Labeled fiction" chip, per-entry honesty asides; Entry One expands the staged "Character Diary One" concept.
-- [DONE] Series system (v1 of eras): all 10 concepts tagged Couture / Imagined Places / Character Studies / Collaborations / Process on the gallery + process page. Named visual eras start when a second visual identity ships (crystal/lavender is the candidate per master prompt — owner decision).
-- [DONE] Collaboration archive (`polls.html`): honest zero-state (no invented results), 4-step how-it-works, append-only archive rules.
-- [DONE] Custom 404 page; sitemap + deploy allowlist updated for all new pages.
-- [DONE] 2026-08-09 — v0.2 DEPLOYED overnight via GitHub web-UI commits (owner approved full autonomy; no CLI credentials needed): pages.yml `d004be4`, process `951b808`, diary `4c0cc3a`, polls `69dab52`, 404 `02137f8`, sitemap `f77e124`, index `58eb79d`. Every file verified byte-identical between origin and local via `git show | cmp`. Local repo reconciled to origin.
-- [OWNER — next push] Repo docs (README/ROADMAP/CHANGELOG/docs/) ride along with the next `.\_ops\push.ps1`.
+- [DONE] Process page with human art-direction notes explicitly framed as notes, not machine logs.
+- [DONE] Three clearly labeled fictional diary entries.
+- [DONE] Series tags: Couture, Imagined Places, Character Studies, Collaborations, and Process.
+- [DONE] Collaboration archive with a truthful zero-state and no invented results.
+- [DONE] Custom 404, sitemap, and deployment allowlist updates.
 
-**v0.2 SHIPPED 2026-08-09.**
+## v0.2.1 — Accessibility and image performance — SHIPPED 2026-08-13
 
-## v0.2.1 — Accessibility and performance — BUILT LOCALLY 2026-08-13, not published
+- [DONE] Skip links, labeled navigation landmarks, one main/H1 per page, corrected heading hierarchy, footer overflow fix, and passing solid-surface text contrast.
+- [DONE] Keyboard-operable gallery buttons; modal initial focus, Tab containment, inert background, Escape/backdrop/close handling, and exact trigger focus return.
+- [DONE] Twelve WebP alternatives with JPEG fallback. Supporting-browser payload for the hero, stage image, and ten concepts fell from 1,744,505 to 1,197,134 bytes (31.4%).
+- [DONE] Browser QA at 320, 768, and 1440 CSS pixels with zero console errors.
+- [DONE] Source commit `dbb2af8`; GitHub Pages run #11 succeeded. All seven then-public HTML files and sampled WebPs matched live; apex/www redirects, DNS, and certificate were healthy.
 
-- [DONE — LOCAL] Accessibility: skip links on all four pages with repeated headers; labeled page/footer navigation landmarks; one main landmark per public page; corrected archive heading level.
-- [DONE — LOCAL] Gallery/lightbox: each image now has a native keyboard-operable button; opening moves focus into the modal; Tab and Shift+Tab stay inside; background content becomes inert; close button, Escape, and backdrop close all return focus to the exact trigger.
-- [DONE — LOCAL] Contrast: `--muted` verified at 6.85:1 or better on the site's solid surfaces; the separate 3.47:1 copyright color now uses `--muted` and passes normal-text AA.
-- [DONE — LOCAL] Performance: WebP counterparts for the hero, stage image, and 10 gallery images, with all JPEG fallbacks preserved. Modern-browser payload for those 12 images falls from 1,744,505 bytes to 1,197,134 bytes (31.4% smaller).
-- [DONE — LOCAL] Semantics/responsive QA: gallery series labels changed from paragraphs to block-displayed spans; phone-width footer overflow fixed on Home, Process, Diary, and Archive.
-- [VERIFIED] Local browser QA at 320, 768, and 1440 CSS pixels; all seven pages retain one H1/main, expected content counts, disclosure/no-release language, and zero console errors. WebP selection, skip target activation, modal focus trap/return, mobile-menu state, and no horizontal overflow verified.
-- [BLOCKED — OWNER] Instagram card remains absent. Fresh public check on 2026-08-13 still returned “page isn't available” for `@sophais.imagination`.
-- [OWNER — PUBLISH] Commit and push the local v0.2.1 changes when ready. The Pages allowlist already includes `assets/***`; no workflow edit is required.
+## v0.2.2 — Trust, privacy, provenance, and release safety — READY — PUBLISH
 
-**v0.2.1 IS COMPLETE LOCALLY AND HAS NOT BEEN PUBLISHED.**
+- [DONE] Self-hosted official Latin WOFF2 subsets for Cormorant Garamond and Inter with OFL licenses, eliminating Google Fonts requests; privacy copy updated accordingly.
+- [DONE] Public-safe provenance page and machine-readable SHA-256/dimension record for every public media derivative in the candidate, with explicit limits on what hashes and stripped web derivatives prove.
+- [DONE] Corrected the diary's future-vote wording; replaced repeated generic image descriptions with concept-specific alt text; completed social-preview metadata; tightened focus/reduced-motion/dialog/footer semantics.
+- [DONE] Added no-referrer and practical same-origin meta CSP policies compatible with the static site's inline code.
+- [DONE] Replaced the fragile duplicated deploy allowlist with a single manifest plus a zero-dependency source/artifact verifier.
+- [DONE] Split build and deploy permissions, pinned official GitHub actions to immutable SHAs, included hidden `.nojekyll` explicitly, and added timeouts.
+- [DONE] Added a main-only weekly/manual health workflow that compares every HTTP-comparable committed content file with the live site (excluding the two Pages control files, `.nojekyll` and `CNAME`) and checks redirects plus the branded 404.
+- [DONE] Guarded the push helper against private author emails and unsafe automatic lock removal; repository-local author now uses GitHub noreply.
+- [DONE] Sanitized current public documentation so it does not expose private operator paths, private source identifiers, or cross-brand boundary details.
+- [DONE] Added a release checklist and an empty evidence-first collaboration record template.
+- [READY — PUBLISH] Commit, push, confirm Pages success, and compare the live release with the source artifact.
 
-## v0.3 — The debut (all BLOCKED — OWNER until real assets exist)
+## v0.3 — The first public participation loop — BLOCKED — OWNER
 
-- Original song(s): [DELEGATE — OTHER AI] music generation (e.g., Suno/Udio or human collaborator) — owner must resolve licensing, voice identity, and disclosure before anything is embedded. Brief for the model: ethereal pop, cinematic shimmer, subtle choral/crystalline textures; no imitation of any living singer.
-- Voice identity: [DELEGATE — OTHER AI] synthetic voice design — blocked on owner approval per master prompt (§ AI voice: no until consent/policy/safety review).
-- Lyric visuals / visualizer video: [DELEGATE — OTHER AI] video model (e.g., Runway/Pika/Veo) using the champagne-gold visual lock; label as synthetic.
-- Release page with verifiable links only after audio actually exists.
+The highest-value next unit is not another speculative site section. It is an approved first substantial X post, followed by one real audience choice and an evidence-backed archive entry.
 
-## Open owner decisions carried from master prompt
+- [BLOCKED — OWNER] Approve or revise the exact public name/hashtag, gold-and-ivory identity, destination, rights/provenance review, ten-post order, and C01 caption/image/alt text.
+- [BLOCKED — OWNER] Verify X write authority and account health. A public profile is not proof of provider access.
+- [BLOCKED — OWNER] Create or verify the intended Instagram account before restoring its link or preparing provider actions.
+- [BLOCKED — OWNER] Approve a real three-word choice with source URL, close rule, counts, permission-based credit, and correction policy before populating the archive.
+- [DONE — LOCAL] Approval-ready decision sheet prepared in the private launch package; queue remains awaiting approval, not queued, externally disabled, and globally paused.
 
-- Final public stylization confirmed as "Sophia's Imagination" for this site (chosen 2026-08-08 in build session).
-- girlgamerswp gaming account role — not referenced on this site until decided.
-- Newer four-asset Sophia/Tiamaria reference pack is [REF, NOT SHIP] and lives outside this repo; not used.
+## v0.4 — The Debut — BLOCKED — OWNER
+
+- [BLOCKED — OWNER] No more music generation or credit use until the owner approves one exact story, title, lyric set, adversarial review, disclosure, voice direction, tool, and one-test scope.
+- [DELEGATE — OTHER AI] After approval only: one original controlled song test; no imitation of a named artist; full rights, stems, tool/version, prompts, hashes, and disclosure records.
+- [BLOCKED — OWNER] Synthetic spoken voice requires separate consent, platform-policy, disclosure, and safety review; never for DMs or simulated human intimacy.
+- [DELEGATE — OTHER AI] Motion/visualizer work begins only from owner-approved stills after voice/music decisions; label it synthetic and log provenance.
+- [BLOCKED — OWNER] Add release pages or links only after owned/licensed audio exists at a verifiable destination.
+
+## Later depth — evidence-triggered
+
+- [BLOCKED — OWNER] Named visual eras begin only when a second identity is approved and ships.
+- [BLOCKED — OWNER] Continue the diary at a quiet monthly cadence when new approved material exists.
+- [BLOCKED — OWNER] Add email capture only with a real provider, privacy terms, and a clear subscriber benefit.
+- [BLOCKED — OWNER] Add a public rights/impersonation contact only after a dedicated public alias exists.
+- [BLOCKED — OWNER] Submit Search Console/Bing verification only through an owner-controlled account.
+- [BLOCKED — OWNER] Legal review of ownership/rights wording and a coordinated Git-history privacy rewrite are separate owner decisions.
+
+## Permanent rules
+
+- The honesty is the moat: no fake releases, events, votes, results, collaborations, endorsements, audience numbers, or machine-log claims.
+- Keep the site and public repository general-audience and separated from private brands, lore, prompts, paths, and operator data.
+- Do not add a framework without a demonstrated need; the static site remains the free, low-risk default.
+- Preserve built → approved → pushed → deployed → live-verified as separate states.
