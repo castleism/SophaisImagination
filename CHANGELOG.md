@@ -1,14 +1,15 @@
 # Changelog — sophais-imagination.com
 
-## 2026-08-13 — v0.2.2 (built; release verification pending)
+## 2026-08-13 — v0.2.2 DEPLOYED
 
 - Privacy/resilience: replaced Google Fonts requests with three self-hosted Latin WOFF2 subsets (125,156 bytes total), preserved exact weight/style matching, and included both SIL OFL 1.1 license texts plus source hashes.
-- Provenance: added a public-safe explanation page and machine-readable record of filename, format, dimensions, byte size, and SHA-256 for every public media derivative in the candidate. The copy explicitly distinguishes byte identity from private source records, rights, and content credentials.
+- Provenance: added a public-safe explanation page and machine-readable record of filename, format, dimensions, byte size, and SHA-256 for every public media derivative in the release. The copy explicitly distinguishes byte identity from private source records, rights, and content credentials.
 - Correctness/accessibility: corrected the diary's premature vote wording; added factual concept-specific image descriptions; expanded visible-focus and reduced-motion support; tightened dialog/footer semantics; added async image decoding where safe.
 - Metadata/privacy: completed Open Graph/Twitter image metadata, added a no-referrer policy, and added a practical same-origin meta CSP compatible with current inline styles/scripts.
 - Deployment safety: introduced one public artifact manifest and zero-dependency source/live verifiers; split build/deploy permissions; pinned official GitHub actions to immutable release SHAs; preserved `.nojekyll`; added timeouts and a main-only weekly/manual live-health check.
 - Repository privacy: set the local author to GitHub noreply, added future-author/privacy checks, stopped automatic Git-lock deletion, and sanitized current public documentation. Older public commits still require a separately approved history rewrite if they are to be removed.
 - Operations: added a release checklist and empty evidence-first collaboration record template. Prepared a separate local social decision sheet without altering approval, queue, pause, account, or publishing state.
+- Release verification: source commit `42513b4`; GitHub Pages run #12 succeeded at 2026-08-14 05:11 UTC (2026-08-13 Alaska time). All 45 HTTP-comparable committed content files matched live byte-for-byte; apex/www redirects, the branded 404, local fonts, WebP selection, mobile layout, and browser console checks passed.
 
 ## 2026-08-13 — v0.2.1 DEPLOYED
 

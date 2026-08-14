@@ -13,9 +13,9 @@ Sophia is a fictional, AI-created adult character: a virtual pop icon, model, an
 - Audience promise: impossible couture, imagined worlds, character studies, and visible process, with clear synthetic-media disclosure
 - Scope: general-audience fantasy-pop editorial; elegant, fully clothed, and non-documentary
 
-## 2. Verified live baseline
+## 2. Verified live site
 
-The v0.2.1 site is live at <https://sophais-imagination.com> on GitHub Pages with HTTPS enforced.
+The v0.2.2 site is live at <https://sophais-imagination.com> on GitHub Pages with HTTPS enforced.
 
 | Page | Path | Purpose |
 | --- | --- | --- |
@@ -23,16 +23,13 @@ The v0.2.1 site is live at <https://sophais-imagination.com> on GitHub Pages wit
 | Process | `/process.html` | Human art-direction notes; explicitly not machine logs |
 | Character Diary | `/diary.html` | Three entries, clearly labeled fiction |
 | Collaboration Archive | `/polls.html` | Honest zero-state until a real vote closes |
+| Provenance | `/provenance.html` | Public-safe derivative hashes and the limits of what those hashes prove |
 | Privacy / Terms / 404 | respective HTML paths | Static supporting pages |
 
-Verified v0.2.1 release facts: source commit `dbb2af8`; Pages run #11 succeeded; all seven then-public HTML files and sampled WebPs matched live; apex/www HTTPS redirects, DNS, and certificate were healthy on 2026-08-13.
-
-### Unreleased v0.2.2 candidate
-
-The local candidate adds `/provenance.html`, `/assets/provenance.json`, same-site
-font files, accessibility and privacy refinements, and manifest-driven release
-verification. These additions remain **built, not deployed or live-verified** until
-the release checklist, Pages run, and post-deploy comparison all succeed.
+Verified v0.2.2 release facts: source commit `42513b4`; Pages run #12 succeeded;
+all 45 HTTP-comparable committed content files matched live byte-for-byte; same-site
+fonts and WebPs loaded; apex/www HTTPS redirects, the branded 404, mobile layout,
+and browser console checks passed on 2026-08-13 Alaska time.
 
 ## 3. Open owner decisions
 

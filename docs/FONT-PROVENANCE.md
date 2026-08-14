@@ -1,6 +1,6 @@
 # Self-hosted font provenance
 
-Retrieved from the official Google Fonts service on 2026-08-13. Only the Latin WOFF2 subsets used by the v0.2.2 candidate are stored under `assets/fonts/`. The original font projects are licensed under the SIL Open Font License 1.1; each family-specific license text is included beside the font files and will deploy with the candidate after release verification.
+Retrieved from the official Google Fonts service on 2026-08-13. Only the Latin WOFF2 subsets used by the deployed v0.2.2 site are stored under `assets/fonts/`. The original font projects are licensed under the SIL Open Font License 1.1; each family-specific license text is deployed beside the font files.
 
 | File | Official source | SHA-256 |
 | --- | --- | --- |

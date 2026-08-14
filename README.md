@@ -6,22 +6,15 @@ Official general-audience site for Sophia, a fictional AI-created pop icon and m
 
 - Live at <https://sophais-imagination.com> with HTTPS enforced.
 - GitHub Pages deploys from `main` through GitHub Actions.
-- v0.2.1 was verified live on 2026-08-13 at source commit `dbb2af8` and Actions run #11.
+- v0.2.2 was verified live on 2026-08-13 at source commit `42513b4` and Pages run #12; all 45 HTTP-comparable content files matched the commit byte-for-byte, and redirects plus the branded 404 passed.
 - Instagram remains absent from Official Links because the intended public handle has not been verified.
 - X is linked publicly, but publishing authority is not inferred from the existence of the account.
-
-## v0.2.2 release candidate
-
-The working tree contains an unreleased v0.2.2 candidate. It adds same-site fonts,
-public derivative provenance, stronger accessibility and privacy behavior, and a
-manifest-driven verifier and deployment artifact. Those changes are not described
-as live until the release checklist, Pages run, and post-deploy byte comparison pass.
 
 ## Stack
 
 Hand-written static HTML, CSS, and JavaScript; no framework, package manager,
-analytics, cookies, database, or build dependency. In the v0.2.2 candidate, fonts
-and media are served from the same site. A small standard-library verification
+analytics, cookies, database, or build dependency. Fonts and media are served from
+the same site. A small standard-library verification
 script checks source and deployment artifacts.
 
 ## Deployment
@@ -45,9 +38,6 @@ The Pages artifact is controlled by `.pages-manifest`. Any new public root file 
 - Never invent votes, audience counts, collaborations, endorsements, testimonials, or provenance evidence.
 
 ## Structure
-
-The entries below describe the v0.2.2 candidate repository, including files that
-are not yet part of the verified-live v0.2.1 site.
 
 - `index.html` — home, disclosure, gallery, honest music zero-state, collaboration prompt, and official links
 - `process.html` — art-direction notes for the ten concepts

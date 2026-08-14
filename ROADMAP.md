@@ -1,6 +1,6 @@
 # Roadmap — sophais-imagination.com
 
-Status legend: `[DONE]` `[READY — PUBLISH]` `[BLOCKED — OWNER]` `[DELEGATE — OTHER AI]`
+Status legend: `[DONE]` `[BLOCKED — OWNER]` `[DELEGATE — OTHER AI]`
 
 ## v0.1 — Launch — SHIPPED 2026-08-08
 
@@ -24,10 +24,10 @@ Status legend: `[DONE]` `[READY — PUBLISH]` `[BLOCKED — OWNER]` `[DELEGATE �
 - [DONE] Browser QA at 320, 768, and 1440 CSS pixels with zero console errors.
 - [DONE] Source commit `dbb2af8`; GitHub Pages run #11 succeeded. All seven then-public HTML files and sampled WebPs matched live; apex/www redirects, DNS, and certificate were healthy.
 
-## v0.2.2 — Trust, privacy, provenance, and release safety — READY — PUBLISH
+## v0.2.2 — Trust, privacy, provenance, and release safety — SHIPPED 2026-08-13
 
 - [DONE] Self-hosted official Latin WOFF2 subsets for Cormorant Garamond and Inter with OFL licenses, eliminating Google Fonts requests; privacy copy updated accordingly.
-- [DONE] Public-safe provenance page and machine-readable SHA-256/dimension record for every public media derivative in the candidate, with explicit limits on what hashes and stripped web derivatives prove.
+- [DONE] Public-safe provenance page and machine-readable SHA-256/dimension record for every public media derivative in the release, with explicit limits on what hashes and stripped web derivatives prove.
 - [DONE] Corrected the diary's future-vote wording; replaced repeated generic image descriptions with concept-specific alt text; completed social-preview metadata; tightened focus/reduced-motion/dialog/footer semantics.
 - [DONE] Added no-referrer and practical same-origin meta CSP policies compatible with the static site's inline code.
 - [DONE] Replaced the fragile duplicated deploy allowlist with a single manifest plus a zero-dependency source/artifact verifier.
@@ -36,7 +36,7 @@ Status legend: `[DONE]` `[READY — PUBLISH]` `[BLOCKED — OWNER]` `[DELEGATE �
 - [DONE] Guarded the push helper against private author emails and unsafe automatic lock removal; repository-local author now uses GitHub noreply.
 - [DONE] Sanitized current public documentation so it does not expose private operator paths, private source identifiers, or cross-brand boundary details.
 - [DONE] Added a release checklist and an empty evidence-first collaboration record template.
-- [READY — PUBLISH] Commit, push, confirm Pages success, and compare the live release with the source artifact.
+- [DONE] Source commit `42513b4`; Pages run #12 succeeded. All 45 HTTP-comparable committed content files matched live byte-for-byte; apex/www redirects, the branded 404, local-font delivery, WebP selection, mobile overflow, and browser console checks passed.
 
 ## v0.3 — The first public participation loop — BLOCKED — OWNER
 
