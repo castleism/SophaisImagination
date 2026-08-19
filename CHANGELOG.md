@@ -1,5 +1,14 @@
 # Changelog — sophais-imagination.com
 
+## 2026-08-18 — v0.3.0 THE STAGE OPENS
+
+- **Corrected a now-false claim.** The Stage section stated "No song has been released yet" and "nothing streamed." Two songs were published on Suno on 2026-08-16, making that copy inaccurate in the understating direction. Replaced with the two releases, their dates, and links.
+- Releases listed: "Sophia's Fall" and "The Ancestors Are Us", both published 2026-08-16 on Suno.
+- **Closed an impersonation gap.** Suno profile `@sophia_imagines` added to Official Links. The site tells readers "if it isn't listed here, it isn't Sophia" while the only channel carrying her music was unlisted.
+- Release copy states precisely what is verifiable: original compositions, human-written and human-reviewed lyrics, AI-generated voice imitating no living or deceased singer, no sampled recordings. Explicitly states the songs are on Suno only — not on Spotify, Apple Music, or any other service, and not for sale.
+- Hero subtitle and meta description updated to reflect that music now exists.
+- Sitemap homepage `lastmod` updated; other pages unchanged.
+
 ## 2026-08-13 — v0.2.2 DEPLOYED
 
 - Privacy/resilience: replaced Google Fonts requests with three self-hosted Latin WOFF2 subsets (125,156 bytes total), preserved exact weight/style matching, and included both SIL OFL 1.1 license texts plus source hashes.

@@ -48,9 +48,17 @@ The highest-value next unit is not another speculative site section. It is an ap
 - [BLOCKED — OWNER] Approve a real three-word choice with source URL, close rule, counts, permission-based credit, and correction policy before populating the archive.
 - [DONE — LOCAL] Approval-ready decision sheet prepared in the private launch package; queue remains awaiting approval, not queued, externally disabled, and globally paused.
 
+## v0.3.0 — The Stage opens — SHIPPED 2026-08-18
+
+- [DONE] Two songs published on Suno 2026-08-16 by the owner: **"Sophia's Fall"** and **"The Ancestors Are Us"**, both using the locked "Sophia - rasp" voice persona.
+- [DONE] The Stage section corrected. It had claimed no song was released and nothing was streamed — false once the songs went up. Now lists both releases, dates and links, and states precisely what is verifiable.
+- [DONE] Suno profile added to Official Links, closing an impersonation gap: the site told readers "if it isn't listed here, it isn't Sophia" while the only channel carrying her music was unlisted.
+- [BLOCKED — OWNER] Confirm the Suno plan tier grants commercial ownership before these become a paid EP or go to distribution.
+- [BLOCKED — OWNER] Start the provenance log for audio — date, tool version (v5.5), voice persona ID, prompt, output hash — while it is two entries rather than twenty reconstructed later.
+
 ## v0.4 — The Debut — BLOCKED — OWNER
 
-- [BLOCKED — OWNER] No more music generation or credit use until the owner approves one exact story, title, lyric set, adversarial review, disclosure, voice direction, tool, and one-test scope.
+- [BLOCKED — OWNER] Further music generation and credit use requires the owner to approve the exact story, title, lyric set, adversarial review, disclosure, voice direction, tool, and scope per song. Two songs are now published; this gate governs song three onward.
 - [DELEGATE — OTHER AI] After approval only: one original controlled song test; no imitation of a named artist; full rights, stems, tool/version, prompts, hashes, and disclosure records.
 - [BLOCKED — OWNER] Synthetic spoken voice requires separate consent, platform-policy, disclosure, and safety review; never for DMs or simulated human intimacy.
 - [DELEGATE — OTHER AI] Motion/visualizer work begins only from owner-approved stills after voice/music decisions; label it synthetic and log provenance.
