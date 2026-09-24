@@ -25,7 +25,9 @@ Use this for every public site change. Built, approved, pushed, deployed, and li
 - [ ] Confirm apex HTTP redirects to apex HTTPS.
 - [ ] Confirm `www` resolves to the apex HTTPS site.
 - [ ] Check every public HTML route plus one real 404 path.
-- [ ] Confirm title, H1, disclosure, no-release text, and no-vote state.
+- [ ] Confirm title, H1, synthetic disclosure, and that the Stage release/zero-state matches current evidence.
+- [ ] Open every listed release and Official Link; confirm the destination, title/handle, disclosure, and public availability.
+- [ ] Confirm the collaboration archive remains at zero unless a real source URL, close record, and verified counts exist.
 - [ ] Confirm representative WebP, JPEG fallback, font, and provenance JSON requests.
 - [ ] Compare live bytes or hashes with the release artifact for changed files.
 - [ ] Run `python scripts/check_live.py` after Pages reports success; it compares every HTTP-comparable committed content file except `.nojekyll` and `CNAME`, plus redirects and the branded 404.
@@ -36,3 +38,5 @@ Use this for every public site change. Built, approved, pushed, deployed, and li
 ## External-state reminder
 
 Site deployment never proves social-account ownership, provider write access, post publication, analytics, music rights, or search-engine indexing. Verify each separately.
+
+The owner confirms the correct eligible plan was active when the current songs were generated. Preserve dated private plan evidence and applicable terms when available as audit corroboration; do not treat their absence as unknown owner knowledge. A new commercial action still needs exact owner approval and substantive source/rights review.

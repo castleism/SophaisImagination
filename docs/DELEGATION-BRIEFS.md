@@ -1,10 +1,10 @@
-# Delegation Briefs — for other AI models (v0.3 "The Debut")
+# Delegation Briefs — controlled distribution and catalog growth (v0.4)
 
-Status: ALL items below are **[BLOCKED — OWNER]** to execute. No generation credit, render, upload, or release is authorized by this file. These briefs exist so work can begin only after the owner approves the exact scope, rights, licensing, and disclosure. Public-safe direction is recorded here; private source material remains in the owner's working archive.
+Status: ALL future work below is **[BLOCKED — OWNER]** to execute. Four public Suno songs and two YouTube videos already exist; they are audit inputs, not authorization for another generation, render, upload, or release. These briefs exist so work can begin only after the owner approves the exact scope, rights, licensing, and disclosure. Public-safe direction is recorded here; private source material remains in the owner's working archive.
 
 ## Brief 1 — Original music (Suno / Udio / human collaborator)
 
-**Potential deliverable:** one controlled original-song test. Additional versions or a release require a fresh decision after the first test is reviewed.
+**Potential deliverable:** one controlled song-five test. The owner attests that the correct eligible plan was active for the existing songs; the two additional account-level songs still require general-audience review plus complete private source, rights, and disclosure records. Retain plan/terms corroboration when available for the audit trail. Additional versions or a release require a fresh decision after the test is reviewed.
 
 - Required sequence: concrete story ledger → exact lyrics → adversarial truth/safety review → owner approval of story, title, lyrics, disclosure, voice direction, tool, and one-test credit scope → one render.
 - Stop condition: if the concept or test is rejected, do not generate a replacement until the owner approves a revised exact package.
@@ -13,7 +13,7 @@ Status: ALL items below are **[BLOCKED — OWNER]** to execute. No generation cr
 - Voice: original synthetic voice ONLY — never imitate, clone, or reference any living or deceased singer. No artist style-prompts by name.
 - Lyrical lanes (match persona voice: luminous, self-aware, honest): imagined worlds and impossible couture; memory of designed places; transparency as beauty ("honestly synthetic"); the audience as co-creator. No romance-bait, no claims of lived experience, no political lines.
 - Hard rules: owner must hold full commercial rights + stems; no samples without license; log tool, version, prompts, and output hashes for provenance; label as AI-created in all metadata and descriptions.
-- Definition of done for a releasable song: owner-approved master + stems + provenance log + written rights confirmation + verified platform disclosure and release destination. Only then does the site's "The Stage" section change.
+- Definition of done for commercial distribution: owner-approved master + stems + provenance log + written rights confirmation + verified platform disclosure and destination. The Stage may truthfully record a public concept release without implying those commercial gates passed.
 
 ## Brief 2 — Synthetic voice identity (blocked hardest — needs owner + policy review)
 
@@ -24,7 +24,7 @@ Status: ALL items below are **[BLOCKED — OWNER]** to execute. No generation cr
 
 ## Brief 3 — Motion / video (Runway / Pika / Veo class)
 
-**Deliverable:** 6–15s cinematic loops per concept for platform-native posts (9:16 + 1:1 + 16:9).
+**Deliverable:** after the two existing YouTube videos are reconciled, 6–15s cinematic loops per concept for platform-native posts (9:16 + 1:1 + 16:9).
 
 - Source stills: owner-approved source masters only; keep face geometry, palette, and couture exactly consistent—no identity drift.
 - Motion language: slow push-ins, fabric and light movement, starlight parallax, one reveal per clip; no fast cuts; no lip-sync until a voice identity exists.

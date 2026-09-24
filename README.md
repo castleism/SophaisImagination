@@ -6,9 +6,12 @@ Official general-audience site for Sophia, a fictional AI-created pop icon and m
 
 - Live at <https://sophais-imagination.com> with HTTPS enforced.
 - GitHub Pages deploys from `main` through GitHub Actions.
-- v0.2.2 was verified live on 2026-08-13 at source commit `42513b4` and Pages run #12; all 45 HTTP-comparable content files matched the commit byte-for-byte, and redirects plus the branded 404 passed.
-- Instagram remains absent from Official Links because the intended public handle has not been verified.
-- X is linked publicly, but publishing authority is not inferred from the existence of the account.
+- The current deployed source is commit `753de4d`; GitHub Pages run `35925135241` succeeded. A read-only check on 2026-09-24 matched all 45 HTTP-comparable public files byte-for-byte and passed apex/www redirects plus the branded 404. The Stage content base remains v0.3.0 commit `bb76480`; `753de4d` adds privacy and terms metadata.
+- A broader truth-state patch is complete locally but remains uncommitted and unpublished. Local, committed, pushed, deployed, and verified-live are intentionally separate states.
+- Two songs completed the site's current owner-editor story-boundary review and remain in its public-safe record. Two additional public Suno songs and owner-published YouTube/social references still require identity, disclosure, ownership, and general-audience review; external profile cards are withheld in the next local artifact during that reconciliation.
+- The owner confirms the correct eligible plan was active when the reviewed songs were created. Dated plan and applicable-terms corroboration remains private commercial-release evidence; no billing details belong in this repository.
+- X has two owner-published music shares. C01 remains the next proposed identity/campaign post, not the account's first-ever post; API write authority and account health remain unverified.
+- The proposed Instagram spelling is unavailable, while a differently spelled owner-controlled account exists. Its exact official status and profile disclosure remain owner decisions.
 
 ## Stack
 
@@ -31,7 +34,7 @@ The Pages artifact is controlled by `.pages-manifest`. Any new public root file 
 ## Content rules
 
 - Always disclose Sophia as a fictional AI-created character. Never imply humanity, consciousness, physical presence, travel, events, product use, or real-world relationships.
-- No released music exists. Do not add players, releases, streaming links, dates, or “out now” language until owned/licensed audio exists verifiably.
+- Make music and release claims only from verified destinations and evidence. A public account catalog does not make every upload part of this general-audience project, and no public release page by itself proves commercial rights, source ownership, or authorization for additional distribution.
 - Keep the site and this public repository strictly general-audience.
 - Do not publish private operator details, private source paths, unpublished lore, prompts, rejected assets, or personal email addresses.
 - No real-person likeness or voice without written consent; no imitation of a named living artist.
@@ -39,7 +42,7 @@ The Pages artifact is controlled by `.pages-manifest`. Any new public root file 
 
 ## Structure
 
-- `index.html` — home, disclosure, gallery, honest music zero-state, collaboration prompt, and official links
+- `index.html` — home, disclosure, gallery, evidence-limited music record, collaboration prompt, and verified official links
 - `process.html` — art-direction notes for the ten concepts
 - `diary.html` — clearly labeled fictional character diary
 - `polls.html` — collaboration archive with an honest zero-state
@@ -47,7 +50,12 @@ The Pages artifact is controlled by `.pages-manifest`. Any new public root file 
 - `404.html`, `privacy.html`, `terms.html`, `robots.txt`, `sitemap.xml`
 - `assets/img/` — web derivatives; `assets/fonts/` — self-hosted OFL-licensed font subsets
 - `assets/provenance.json` — machine-readable hashes and dimensions for public media
-- `docs/DELEGATION-BRIEFS.md` — owner-gated v0.3 briefs
+- `docs/AUDIO-PROVENANCE-RECORD.md` — public-safe release index and private-record requirements
+- `docs/PARTICIPATION-LOOP-PROTOCOL.md` — evidence rules for the first real audience choice
+- `docs/COMMERCE-READINESS.md` — print, music, collaboration, provider, and money gates
+- `docs/DELEGATION-BRIEFS.md` — owner-gated catalog-growth briefs
+- `REVENUE-MODEL.md` — proposed six-year commercial sequence and evidence thresholds; not an activation plan
+- `ROADMAP-PROGRESS-2026-09-24.md` — dated local/live reconciliation and smallest next owner action
 - `.pages-manifest` and `.github/workflows/` — verified Pages artifact definition, deployment, and read-only live-health monitoring
 - `scripts/verify_site.py`, `scripts/check_live.py`, and `_ops/push.ps1` — local verification, live comparison, and guarded push helpers
 

@@ -1,6 +1,6 @@
 # Roadmap — sophais-imagination.com
 
-Status legend: `[DONE]` `[BLOCKED — OWNER]` `[DELEGATE — OTHER AI]`
+Status legend: `[DONE]` `[DONE — LOCAL]` `[OWNER-ATTESTED]` `[EVIDENCE — REVIEW]` `[BLOCKED — OWNER]` `[DELEGATE — OTHER AI]`
 
 ## v0.1 — Launch — SHIPPED 2026-08-08
 
@@ -40,29 +40,62 @@ Status legend: `[DONE]` `[BLOCKED — OWNER]` `[DELEGATE — OTHER AI]`
 
 ## v0.3 — The first public participation loop — BLOCKED — OWNER
 
-The highest-value next unit is not another speculative site section. It is an approved first substantial X post, followed by one real audience choice and an evidence-backed archive entry.
+The highest-value next unit is not another speculative site section. It is an approved identity/campaign post that corrects the currently disclosure-thin feed, followed by one bounded audience choice and an evidence-backed archive entry.
 
 - [BLOCKED — OWNER] Approve or revise the exact public name/hashtag, gold-and-ivory identity, destination, rights/provenance review, ten-post order, and C01 caption/image/alt text.
 - [BLOCKED — OWNER] Verify X write authority and account health. A public profile is not proof of provider access.
-- [BLOCKED — OWNER] Create or verify the intended Instagram account before restoring its link or preparing provider actions.
-- [BLOCKED — OWNER] Approve a real three-word choice with source URL, close rule, counts, permission-based credit, and correction policy before populating the archive.
-- [DONE — LOCAL] Approval-ready decision sheet prepared in the private launch package; queue remains awaiting approval, not queued, externally disabled, and globally paused.
+- [BLOCKED — OWNER] Reconcile the intended unavailable Instagram spelling with the differently spelled owner-controlled account; approve its public name, synthetic disclosure, site link, and exact official status before restoring a website link.
+- [BLOCKED — OWNER] Decide whether the owner-published YouTube channel belongs to this public-safe identity or a separate story lane. Do not list it as official until its name, disclosure, outbound link, and public-safe positioning are approved.
+- [BLOCKED — OWNER] Correct or replace the current X travel-framed music post and disclosure-thin profiles/posts. The existing permanent posts are not C01 and do not constitute a vote.
+- [BLOCKED — OWNER] Reconcile two additional public Suno songs and all public voice/profile labels against the general-audience, adult-only, rights, and disclosure rules. Do not imply the whole account catalog is approved.
+- [BLOCKED — OWNER] Approve the first bounded choice with a source URL, close rule, eligibility/count rules, permission-based credit, and correction policy before populating the archive; approve the later Three-Word Worlds submission ritual separately.
+- [DONE — LOCAL] The immutable 30-item review bundle was re-fingerprinted on 2026-08-26; all five bundle hashes and C01's image hash still match. The queue remains awaiting approval, not queued, externally disabled, and marked as requiring a global pause. The actual provider pause must be verified privately before staging.
+- [DONE — LOCAL] The three flagged visuals were re-reviewed at full size: C06's waterfalls descend into cloud/mist, C10's crystal treatment is architectural but fully clothed, and Facebook C03 remains fully clothed. Acceptance remains an owner choice.
+- [DONE — LOCAL] A refreshed private gate card and a no-invented-results participation protocol were prepared without editing the immutable queue.
 
-## v0.3.0 — The Stage opens — SHIPPED 2026-08-18
+## v0.3.0 — The Stage opens — SHIPPED 2026-08-19
 
-- [DONE] Two songs published on Suno 2026-08-16 by the owner: **"Sophia's Fall"** and **"The Ancestors Are Us"**, both using the locked "Sophia - rasp" voice persona.
-- [DONE] The Stage section corrected. It had claimed no song was released and nothing was streamed — false once the songs went up. Now lists both releases, dates and links, and states precisely what is verifiable.
-- [DONE] Suno profile added to Official Links, closing an impersonation gap: the site told readers "if it isn't listed here, it isn't Sophia" while the only channel carrying her music was unlisted.
-- [BLOCKED — OWNER] Confirm the Suno plan tier grants commercial ownership before these become a paid EP or go to distribution.
-- [BLOCKED — OWNER] Start the provenance log for audio — date, tool version (v5.5), voice persona ID, prompt, output hash — while it is two entries rather than twenty reconstructed later.
+- [DONE] Two songs were published on Suno on 2026-08-16 by the owner: **"Sophia's Fall"** and **"The Ancestors Are Us"**. The public song pages show a synthetic voice profile and model version; private source identifiers remain outside this repository.
+- [DONE] The Stage replaced its false no-release state with the two verifiable Suno song pages. Source commit `bb76480`; Pages run #14 succeeded. On 2026-08-26, all 45 public files matched live and the August 24 health run was green.
+- [DONE — LOCAL] The next local patch removes the now-false "Suno only" and absolute Official Links claims after the official X account linked YouTube uploads. It also attributes creation/no-sampling statements to the owner-editor and states their evidentiary limit.
+- [DONE — LOCAL] After two additional Suno songs and unresolved account-level identity material were found, the next local artifact withholds Suno and X profile cards. No provider content was deleted or changed.
+- [DONE — LOCAL] After owner-editor story-boundary review, the next local artifact retains both original owner-published songs in the general-audience Stage. No removal or unlisting action is recommended for either reviewed song.
+- [OWNER-ATTESTED] The owner confirms that the correct eligible plan was active when the songs were created. Retain dated plan and applicable-terms records privately when available as audit corroboration; their absence does not make the owner's plan knowledge unknown. Do not publish billing details.
+- [DONE — LOCAL] A public-safe audio provenance record was started for both reviewed song links and their observed public metadata; all owner-only source fields remain explicitly incomplete.
+- [BLOCKED — OWNER] Before a new commercial use, approve the exact use and complete the substantive private record: source/master hashes, lyrics versions, tool settings, voice/source authorization, stems/downloads, and any collaborators or uploaded material. Retain plan/terms corroboration when available as supporting audit evidence.
 
-## v0.4 — The Debut — BLOCKED — OWNER
+## v0.3.1 — Supporting-page metadata — SHIPPED 2026-09-23
 
-- [BLOCKED — OWNER] Further music generation and credit use requires the owner to approve the exact story, title, lyric set, adversarial review, disclosure, voice direction, tool, and scope per song. Two songs are now published; this gate governs song three onward.
-- [DELEGATE — OTHER AI] After approval only: one original controlled song test; no imitation of a named artist; full rights, stems, tool/version, prompts, hashes, and disclosure records.
+- [DONE] Added descriptions and self-canonical URLs to privacy and terms while retaining their deliberate `noindex` state. Source commit `753de4d`; Pages run `35925135241` succeeded.
+- [DONE] Read-only verification on 2026-09-24 matched all 45 HTTP-comparable public files to `753de4d`; internal references, key assets, apex/www redirects, sitemap, robots, and the branded 404 passed.
+- [DONE — LOCAL] The unreleased truth-state patch now sits cleanly on top of `753de4d`; it does not regress the supporting-page metadata.
+
+## v0.4 — Controlled distribution and catalog growth — BLOCKED — OWNER
+
+- [BLOCKED — OWNER] Further music generation and credit use requires the owner to approve the exact story, title, lyric set, adversarial review, disclosure, voice direction, tool, and scope per song. Four songs are now public on the linked Suno account; this gate governs song five onward.
+- [DELEGATE — OTHER AI] After approval only: one controlled song-five test; no imitation of a named artist; full rights, stems, tool/version, prompts, hashes, and disclosure records.
 - [BLOCKED — OWNER] Synthetic spoken voice requires separate consent, platform-policy, disclosure, and safety review; never for DMs or simulated human intimacy.
-- [DELEGATE — OTHER AI] Motion/visualizer work begins only from owner-approved stills after voice/music decisions; label it synthetic and log provenance.
-- [BLOCKED — OWNER] Add release pages or links only after owned/licensed audio exists at a verifiable destination.
+- [BLOCKED — OWNER] Reconcile and disclose the two existing YouTube videos before additional motion/visualizer work. Future motion begins only from owner-approved stills and retains source/provenance records.
+- [BLOCKED — OWNER] Add Spotify, Apple Music, sales, paid EP, or other commercial-distribution links only after rights and delivery evidence are archived and approved.
+
+## Six-year business path — PLANNING ONLY
+
+No revenue engine is verified as active. The supplied portfolio ranges are proposals, not forecasts, and do not authorize a checkout, provider, purchase, post, outreach, distribution submission, or account change.
+
+- [DONE — LOCAL] Added `REVENUE-MODEL.md` with an evidence-gated first-dollar sequence and separate Year 1, Year 2, and Years 3–6 operating horizons. Internal audience and financial targets are not reproduced in this public repository.
+- [DONE — LOCAL] Added `docs/COMMERCE-READINESS.md`. The ten 800 × 1067 catalog files are web derivatives, not print masters or sale-ready inventory.
+- [BLOCKED — OWNER] A first print proof requires one approved source master, complete private rights review, provider/product/price approval, and a proof budget. A shop requires additional seller, tax, payment, fulfillment, support, privacy, shipping, and refund decisions plus an end-to-end test.
+- [BLOCKED — OWNER] Brand collaboration, virtual-fashion licensing, sync, paid music distribution, and a paid MyPersonas page each require their own written scope and external-system approvals.
+
+| Horizon | Proposed focus |
+| --- | --- |
+| Year 1 | Finish identity and rights gates; prove one print before any limited pilot; continue approved editorial/music work |
+| Year 2 | One disclosed collaboration; couture licensing; controlled rights-cleared distribution |
+| Years 3–6 | Evidence-led virtual fashion, music catalog, and approved platform presence |
+
+Internal audience and revenue targets remain private owner-review inputs, not public claims or forecasts.
+
+**Pivot rules:** identity repair and the first evidence-backed participation loop stay ahead of commerce. If no approved source master and private rights record exist, no print proof begins. If a proof fails, revise only with exact approval or return to editorial work. Before a pilot opens, the owner must set acceptable margin, defect, refund/replacement, and support-load thresholds; pause rather than expand when any threshold fails or remains unmeasured.
 
 ## Later depth — evidence-triggered
 

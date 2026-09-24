@@ -22,6 +22,8 @@ from xml.etree import ElementTree
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = REPO_ROOT / ".pages-manifest"
+SITE_ORIGIN = "https://sophais-imagination.com"
+INTENTIONALLY_NOINDEX_HTML = {"404.html", "privacy.html", "terms.html"}
 
 ROOT_PUBLIC_NAMES = {".nojekyll", "CNAME", "robots.txt", "sitemap.xml"}
 ROOT_PUBLIC_SUFFIXES = {
@@ -103,10 +105,14 @@ class PublicHTMLParser(HTMLParser):
         self.h1_count = 0
         self.main_count = 0
         self.ids: set[str] = set()
+        self.duplicate_ids: set[str] = set()
+        self.images_missing_alt: list[str] = []
         self.references: list[tuple[str, str]] = []
         self.blank_targets_without_noopener: list[str] = []
         self.noindex = False
-        self.verified_release_links: list[str] = []
+        self.descriptions: list[str] = []
+        self.canonical_links: list[str] = []
+        self.verified_release_links: set[str] = set()
         self.verified_instagram_links: list[str] = []
         self.verified_result_markers = 0
         self._json_ld_depth = 0
@@ -139,11 +145,25 @@ class PublicHTMLParser(HTMLParser):
             self.main_count += 1
 
         if attr.get("id"):
-            self.ids.add(attr["id"])
+            identifier = attr["id"]
+            if identifier in self.ids:
+                self.duplicate_ids.add(identifier)
+            self.ids.add(identifier)
 
-        if tag == "meta" and attr.get("name", "").lower() == "robots":
-            if "noindex" in attr.get("content", "").lower():
+        if tag == "img" and "alt" not in attr:
+            self.images_missing_alt.append(attr.get("src", "<missing src>"))
+
+        if tag == "meta":
+            meta_name = attr.get("name", "").lower()
+            if meta_name == "robots" and "noindex" in attr.get("content", "").lower():
                 self.noindex = True
+            elif meta_name == "description":
+                self.descriptions.append(attr.get("content", "").strip())
+
+        if tag == "link":
+            rel = {token.lower() for token in attr.get("rel", "").split()}
+            if "canonical" in rel:
+                self.canonical_links.append(attr.get("href", "").strip())
 
         if tag == "script" and attr.get("type", "").lower() == "application/ld+json":
             self._json_ld_depth = 1
@@ -174,7 +194,7 @@ class PublicHTMLParser(HTMLParser):
         if attr.get("data-verifiable-release", "").lower() == "true":
             href = attr.get("href", "")
             if tag == "a" and _is_external_https(href):
-                self.verified_release_links.append(href)
+                self.verified_release_links.add(href)
 
         if attr.get("data-verified-account", "").lower() == "true":
             href = attr.get("href", "")
@@ -203,6 +223,25 @@ def _is_instagram_url(value: str) -> bool:
     parsed = urlsplit(value)
     host = parsed.netloc.lower().split(":", 1)[0]
     return parsed.scheme.lower() == "https" and host in {"instagram.com", "www.instagram.com"}
+
+
+def _is_held_profile_url(value: str) -> bool:
+    """Identify withheld social profiles without recording private handles."""
+    parsed = urlsplit(value)
+    if parsed.scheme.lower() != "https":
+        return False
+    host = parsed.netloc.lower().split(":", 1)[0]
+    path = unquote(parsed.path).strip("/")
+    segments = [segment for segment in path.split("/") if segment]
+    if host in {"instagram.com", "www.instagram.com", "x.com", "www.x.com"}:
+        return bool(segments)
+    if host in {"suno.com", "www.suno.com"}:
+        return len(segments) == 1 and segments[0].startswith("@")
+    if host in {"youtube.com", "www.youtube.com"}:
+        return bool(segments) and (
+            segments[0].startswith("@") or segments[0] in {"c", "channel", "user"}
+        )
+    return False
 
 
 def _display(path: Path) -> str:
@@ -353,6 +392,129 @@ def _check_repository_document_safety(errors: list[str]) -> None:
                 "the address was not printed. Use an owner-approved public alias only."
             )
 
+    index_path = REPO_ROOT / "index.html"
+    index_text = _read_public_text(index_path, errors) if index_path.is_file() else None
+    if index_text and 'data-verifiable-release="true"' in index_text:
+        release_parser = PublicHTMLParser()
+        try:
+            release_parser.feed(index_text)
+            release_parser.close()
+        except Exception:
+            # _check_html reports the parse failure later; do not guess a count here.
+            release_count = 0
+        else:
+            release_count = len(release_parser.verified_release_links)
+        stale_active_release_phrases = {
+            "README.md": (
+                "No released music exists",
+                "honest music zero-state",
+            ),
+            "docs/HANDOFF-CHATGPT-2026-08-09.md": (
+                "honest music zero-state",
+                "Preserve the no-release",
+                "the first X post",
+            ),
+            "docs/RELEASE-CHECKLIST.md": (
+                "no-release text",
+            ),
+        }
+        for relative, phrases in stale_active_release_phrases.items():
+            path = REPO_ROOT.joinpath(*PurePosixPath(relative).parts)
+            text = _read_public_text(path, errors) if path.is_file() else None
+            if text is None:
+                continue
+            lowered = text.lower()
+            for phrase in phrases:
+                if phrase.lower() in lowered:
+                    errors.append(
+                        f"{relative}: active release markers conflict with stale documentation phrase {phrase!r}."
+                    )
+        count_specific_stale_phrases: dict[str, tuple[str, ...]] = {}
+        if release_count == 2:
+            count_specific_stale_phrases = {
+                "CHANGELOG.md": ("same one-song reviewed record",),
+                "README.md": ("One song is in the site's reviewed public-safe record",),
+                "ROADMAP.md": ("sole reviewed song link",),
+                "docs/HANDOFF-CHATGPT-2026-08-09.md": (
+                    "three held public Suno songs",
+                    "records only \"The Ancestors Are Us\"",
+                ),
+                "docs/AUDIO-PROVENANCE-RECORD.md": (
+                    "sole reviewed song",
+                    "three held public songs",
+                ),
+            }
+        elif release_count == 1:
+            count_specific_stale_phrases = {
+                "CHANGELOG.md": ("same two-song reviewed record",),
+                "README.md": ("Two songs are in the site's reviewed public-safe record",),
+                "ROADMAP.md": ("retains both original owner-published songs",),
+            }
+        for relative, phrases in count_specific_stale_phrases.items():
+            path = REPO_ROOT.joinpath(*PurePosixPath(relative).parts)
+            text = _read_public_text(path, errors) if path.is_file() else None
+            if text is None:
+                continue
+            lowered = text.lower()
+            for phrase in phrases:
+                if phrase.lower() in lowered:
+                    errors.append(
+                        f"{relative}: {release_count} verified release links conflict with stale "
+                        f"documentation phrase {phrase!r}."
+                    )
+        public_html_zero_state_phrases = (
+            "no music has been released",
+            "no released music exists",
+            "no song has been released yet",
+        )
+        for path in sorted(REPO_ROOT.glob("*.html")):
+            text = _read_public_text(path, errors)
+            if text is None:
+                continue
+            lowered = text.lower()
+            for phrase in public_html_zero_state_phrases:
+                if phrase in lowered:
+                    errors.append(
+                        f"{_display(path)}: active release markers conflict with stale public phrase {phrase!r}."
+                    )
+
+
+def _check_release_count_language(
+    texts: dict[str, str], html_parsers: dict[str, PublicHTMLParser], errors: list[str]
+) -> None:
+    """Reject public singular/plural claims that contradict the verified release count."""
+    index_parser = html_parsers.get("index.html")
+    if not index_parser:
+        return
+    release_count = len(index_parser.verified_release_links)
+    patterns: tuple[re.Pattern[str], ...] = ()
+    if release_count == 1:
+        patterns = (
+            re.compile(
+                r"(?is)\bboth\b.{0,100}\b(?:songs?|releases?|tracks?|compositions?|vocals?)\b"
+            ),
+            re.compile(r"(?i)\btheir vocals\b"),
+            re.compile(r"(?i)\btwo\s+(?:ai-created\s+)?(?:songs?|releases?|tracks?|song concepts?)\b"),
+        )
+    elif release_count > 1:
+        patterns = (
+            re.compile(r"(?i)\ba public-safe song record\b"),
+            re.compile(
+                r"(?is)\b(?:one|sole|single)\b.{0,100}\b(?:songs?|releases?|tracks?|song pages?)\b"
+            ),
+        )
+    for relative, text in texts.items():
+        if not relative.endswith(".html"):
+            continue
+        for pattern in patterns:
+            match = pattern.search(text)
+            if match:
+                line_number = text.count("\n", 0, match.start()) + 1
+                errors.append(
+                    f"{relative}:{line_number}: release-count language conflicts with "
+                    f"{release_count} verified release link(s)."
+                )
+
 
 def _check_asset_path(relative: str, errors: list[str]) -> None:
     path = PurePosixPath(relative)
@@ -413,6 +575,10 @@ def _local_target(source_relative: str, reference: str) -> tuple[str | None, str
     return normalized, unquote(parsed.fragment) or None
 
 
+def _expected_canonical(relative: str) -> str:
+    return f"{SITE_ORIGIN}/" if relative == "index.html" else f"{SITE_ORIGIN}/{relative}"
+
+
 def _check_html(
     relative: str,
     text: str,
@@ -433,6 +599,36 @@ def _check_html(
         errors.append(f"{relative}: expected exactly one H1, found {parser.h1_count}.")
     if parser.main_count != 1:
         errors.append(f"{relative}: expected exactly one main landmark, found {parser.main_count}.")
+
+    for identifier in sorted(parser.duplicate_ids):
+        errors.append(f"{relative}: duplicate id {identifier!r}.")
+    for source in parser.images_missing_alt:
+        errors.append(f"{relative}: img element lacks an alt attribute ({source}).")
+
+    should_index = relative not in INTENTIONALLY_NOINDEX_HTML
+    if should_index and parser.noindex:
+        errors.append(f"{relative}: unexpectedly declares noindex.")
+    elif not should_index and not parser.noindex:
+        errors.append(f"{relative}: must retain its intentional noindex directive.")
+
+    if should_index:
+        if len(parser.descriptions) != 1:
+            errors.append(
+                f"{relative}: expected exactly one meta description, found {len(parser.descriptions)}."
+            )
+        elif not parser.descriptions[0]:
+            errors.append(f"{relative}: meta description is empty.")
+
+        expected_canonical = _expected_canonical(relative)
+        if len(parser.canonical_links) != 1:
+            errors.append(
+                f"{relative}: expected exactly one canonical link, found {len(parser.canonical_links)}."
+            )
+        elif parser.canonical_links[0] != expected_canonical:
+            errors.append(
+                f"{relative}: canonical must be {expected_canonical!r}, "
+                f"found {parser.canonical_links[0]!r}."
+            )
 
     for href in parser.blank_targets_without_noopener:
         errors.append(f"{relative}: target=_blank link lacks rel=noopener ({href}).")
@@ -526,6 +722,26 @@ def _check_truth_invariants(
                 "index.html: music must retain the no-release truth statement or use an external HTTPS link "
                 "marked data-verifiable-release=\"true\" after evidence exists."
             )
+        stale_active_claims = (
+            "published on suno, and only on suno",
+            "the only places sophia exists",
+            "if it isn't listed here, it isn't sophia",
+        )
+        if verified_release_links:
+            for phrase in stale_active_claims:
+                if phrase in index.lower():
+                    errors.append(f"index.html: stale absolute release/channel claim {phrase!r}.")
+        if index_parser:
+            for attribute, url in index_parser.references:
+                if attribute == "href" and _is_held_profile_url(url):
+                    errors.append(
+                        "index.html: an external profile URL is held pending owner-approved "
+                        "identity/disclosure review."
+                    )
+
+    terms = texts.get("terms.html", "")
+    if terms and "the only official channels are listed on the home page" in terms.lower():
+        errors.append("terms.html: stale absolute Official Links claim.")
 
     polls = texts.get("polls.html", "")
     polls_parser = html_parsers.get("polls.html")
@@ -551,14 +767,39 @@ def _check_truth_invariants(
             )
 
 
-def _check_sitemap(errors: list[str]) -> None:
+def _check_sitemap(html_parsers: dict[str, PublicHTMLParser], errors: list[str]) -> None:
     path = REPO_ROOT / "sitemap.xml"
     if not path.is_file():
         return
     try:
-        ElementTree.parse(path)
+        tree = ElementTree.parse(path)
     except ElementTree.ParseError as exc:
         errors.append(f"sitemap.xml: invalid XML: {exc}.")
+        return
+
+    raw_locations = [(element.text or "").strip() for element in tree.findall(".//{*}loc")]
+    if any(not location for location in raw_locations):
+        errors.append("sitemap.xml: every url entry must have a non-empty loc.")
+
+    locations = [location for location in raw_locations if location]
+    duplicate_locations = sorted(
+        location for location in set(locations) if locations.count(location) > 1
+    )
+    if duplicate_locations:
+        errors.append("sitemap.xml: duplicate loc values: " + ", ".join(duplicate_locations) + ".")
+
+    expected_locations = {
+        _expected_canonical(relative)
+        for relative in html_parsers
+        if relative not in INTENTIONALLY_NOINDEX_HTML
+    }
+    actual_locations = set(locations)
+    missing = sorted(expected_locations - actual_locations)
+    unexpected = sorted(actual_locations - expected_locations)
+    if missing:
+        errors.append("sitemap.xml: missing indexable pages: " + ", ".join(missing) + ".")
+    if unexpected:
+        errors.append("sitemap.xml: contains non-indexable or unknown pages: " + ", ".join(unexpected) + ".")
 
 
 def _image_identity(data: bytes) -> tuple[str, int, int]:
@@ -843,8 +1084,9 @@ def verify(build_output: Path | None = None) -> list[str]:
                 errors.append(f"{relative}: invalid JSON: {exc}.")
 
     _check_fragments(texts, html_parsers, errors)
+    _check_release_count_language(texts, html_parsers, errors)
     _check_truth_invariants(texts, html_parsers, errors)
-    _check_sitemap(errors)
+    _check_sitemap(html_parsers, errors)
     _check_image_provenance(errors)
 
     if build_output is not None and not errors:
