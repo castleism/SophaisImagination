@@ -70,6 +70,17 @@ The highest-value next unit is not another speculative site section. It is an ap
 - [DONE] Read-only verification on 2026-09-24 matched all 45 HTTP-comparable public files to `753de4d`; internal references, key assets, apex/www redirects, sitemap, robots, and the branded 404 passed.
 - [DONE — LOCAL] The unreleased truth-state patch now sits cleanly on top of `753de4d`; it does not regress the supporting-page metadata.
 
+## v0.3.2 — Installable progressive web app — LOCAL, UNRELEASED
+
+- [DONE — LOCAL] Added `manifest.webmanifest` (standalone display, site palette, `any` + `maskable` icons at 192 and 512), `sw.js`, and `offline.html`, and added all three to `.pages-manifest`.
+- [DONE — LOCAL] Wired `<link rel="manifest">`, `theme-color`, apple/mobile web-app meta, touch icon, and a fault-tolerant service-worker registration into all eight public HTML pages.
+- [DONE — LOCAL] Service-worker caching strategy chosen for honesty, not just speed: navigations are **network-first** so a stale release claim can never be served while the reader is online; immutable same-origin assets are cache-first. The cache key is versioned (`sophai-v1.0.0`) and old caches are deleted on activate.
+- [DONE — LOCAL] `offline.html` carries the same AI-created/synthetic disclosure as every other page, warns that cached pages may be out of date, and is deliberately `noindex` and excluded from the sitemap. The verifier's `INTENTIONALLY_NOINDEX_HTML` set was extended to cover it.
+- [DONE — LOCAL] Repaired a concurrent-process collision: `sw.js`, `manifest.webmanifest`, and `offline.html` had been written with unrendered `{{`/`}}` template braces. `sw.js` was invalid JavaScript, which means the service worker would never have installed and the PWA would have silently done nothing. Both files now pass `node --check` / `json.load`.
+- [DONE — LOCAL] Removed a duplicate icon set at `assets/img/icon-*.png`; the manifest's `/assets/icon-*.png` set is the single source.
+- [BLOCKED — OWNER] Install on the phone. Installing the PWA requires the owner to open `https://sophais-imagination.com` on the device and choose Install/Add to Home Screen; it cannot be pushed from here. It also requires the deploy to be live, so the owner push below comes first.
+- [NOT APPLICABLE] APK packaging. This repository is a static site with no Android project, and this environment has no device access. If a Play Store listing is ever wanted, the route is Bubblewrap/TWA over this PWA plus Digital Asset Links — that is a separate, owner-gated decision, not a build step.
+
 ## v0.4 — Controlled distribution and catalog growth — BLOCKED — OWNER
 
 - [BLOCKED — OWNER] Further music generation and credit use requires the owner to approve the exact story, title, lyric set, adversarial review, disclosure, voice direction, tool, and scope per song. Four songs are now public on the linked Suno account; this gate governs song five onward.

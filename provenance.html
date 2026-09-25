@@ -24,7 +24,6 @@
 <meta name="twitter:image" content="https://sophais-imagination.com/assets/img/og-image.jpg">
 <meta name="twitter:image:alt" content="Sophia, a fictional AI-created adult muse, in an imagined champagne-gold celestial setting.">
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
   :root{--midnight:#0c1021;--midnight-2:#121831;--ivory:#f5efe2;--pearl:#ece5d3;--champagne:#dcbc82;--gold:#b8934d;--gold-soft:rgba(220,188,130,.28);--muted:rgba(245,239,226,.64);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif}
@@ -60,6 +59,13 @@
   @media(max-width:640px){.grid{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column;padding:14px 0}.back{padding-bottom:4px}main{padding-top:56px}}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.skip-link{transition:none}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0c1021">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sophia">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -102,5 +108,12 @@
     <nav aria-label="Footer"><a href="index.html">Home</a><a href="process.html">Process</a><a href="diary.html">Diary</a><a href="polls.html">Collaborations</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () { /* offline support is optional */ });
+  });
+}
+</script>
 </body>
 </html>

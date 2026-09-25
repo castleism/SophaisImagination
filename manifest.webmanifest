@@ -1,0 +1,45 @@
+{
+  "name": "Sophia's Imagination",
+  "short_name": "Sophia",
+  "description": "Sophia is a fictional, AI-created pop icon and muse. Two reviewed song pages, impossible couture, imagined worlds, and visible creative process — always honest about what is synthetic.",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0c1021",
+  "theme_color": "#0c1021",
+  "categories": [
+    "entertainment",
+    "art",
+    "music"
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

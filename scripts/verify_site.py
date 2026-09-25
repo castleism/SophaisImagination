@@ -23,7 +23,7 @@ from xml.etree import ElementTree
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = REPO_ROOT / ".pages-manifest"
 SITE_ORIGIN = "https://sophais-imagination.com"
-INTENTIONALLY_NOINDEX_HTML = {"404.html", "privacy.html", "terms.html"}
+INTENTIONALLY_NOINDEX_HTML = {"404.html", "offline.html", "privacy.html", "terms.html"}
 
 ROOT_PUBLIC_NAMES = {".nojekyll", "CNAME", "robots.txt", "sitemap.xml"}
 ROOT_PUBLIC_SUFFIXES = {

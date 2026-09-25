@@ -1,5 +1,15 @@
 # Changelog — sophais-imagination.com
 
+## 2026-09-25 — LOCAL, UNRELEASED — INSTALLABLE PROGRESSIVE WEB APP
+
+- Added `manifest.webmanifest`, `sw.js`, and `offline.html`, plus a maskable and standard icon set at 192 and 512, and listed all three new files in `.pages-manifest`.
+- Wired manifest, theme-color, apple/mobile web-app meta, touch icon, and service-worker registration into all eight public HTML pages. Registration failure is caught, so a browser without service-worker support degrades to the plain site.
+- Chose network-first for navigations deliberately: the site's whole thesis is not claiming things that are not true, and a cache-first HTML strategy would let a superseded release claim be served to an online reader. Immutable same-origin assets stay cache-first. Caches are versioned and pruned on activate.
+- `offline.html` repeats the AI-created/synthetic disclosure, states plainly that cached pages may be out of date, and is intentionally `noindex` and absent from the sitemap; `INTENTIONALLY_NOINDEX_HTML` in the verifier was extended to match.
+- Repaired files a concurrent process had written with unrendered `{{`/`}}` template braces. `sw.js` failed `node --check`, so the worker would never have installed and the PWA would have appeared to work while doing nothing. Removed a duplicate `assets/img/icon-*.png` set in favour of the `/assets/` set the manifest references.
+- `scripts/verify_site.py` passes clean from `.pages-manifest`; `sw.js` is valid JavaScript and `manifest.webmanifest` is valid JSON.
+- No push, deployment, account change, post, generation, purchase, or device installation was performed. Installing the app on a phone is an owner action taken in the device browser after the next deploy.
+
 ## 2026-09-24 — LOCAL, UNRELEASED ROADMAP RECONCILIATION
 
 - Safely fast-forwarded local `main` to deployed source commit `753de4d` before continuing the existing truth-state patch; the September privacy/terms metadata and all prior local work are both preserved.

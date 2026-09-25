@@ -22,6 +22,13 @@
   a:focus-visible{outline:3px solid var(--champagne);outline-offset:3px}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0c1021">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sophia">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 </head>
 <body>
 <main>
@@ -30,5 +37,12 @@
   <p>This address belongs to a world that hasn't been designed yet. <em>Fitting, honestly — most of Sophia's places don't exist.</em> The real ones are one door away.</p>
   <a class="btn" href="/">Return to the worlds</a>
 </main>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () { /* offline support is optional */ });
+  });
+}
+</script>
 </body>
 </html>

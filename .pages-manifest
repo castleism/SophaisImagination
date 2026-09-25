@@ -9,10 +9,13 @@ CNAME
 assets/
 diary.html
 index.html
+manifest.webmanifest
+offline.html
 polls.html
 privacy.html
 process.html
 provenance.html
 robots.txt
 sitemap.xml
+sw.js
 terms.html

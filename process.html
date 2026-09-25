@@ -25,7 +25,6 @@
 <meta name="twitter:image" content="https://sophais-imagination.com/assets/img/og-image.jpg">
 <meta name="twitter:image:alt" content="Wide cinematic view of Sophia, an adult fictional blonde woman, centered on an imagined champagne-gold stage in ivory-and-gold couture beneath warm celestial light.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
   :root{
@@ -77,6 +76,13 @@
   .foot nav{display:flex;gap:8px 18px;flex-wrap:wrap}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0c1021">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sophia">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 </head>
 <body>
 
@@ -184,5 +190,12 @@ notes.forEach(({f,t,s,a,seed,design,kept}) => {
 });
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () { /* offline support is optional */ });
+  });
+}
+</script>
 </body>
 </html>

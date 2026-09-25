@@ -20,6 +20,13 @@
   .updated{font-size:.85rem;opacity:.6}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0c1021">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sophia">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 </head>
 <body>
 <main>
@@ -37,5 +44,12 @@
 <p>This site is provided as-is for informational and entertainment purposes, without warranties of any kind. External links are provided for convenience; their content is not controlled or endorsed by this site.</p>
 <p><a href="index.html">← Back to the site</a> · <a href="provenance.html">Media provenance</a></p>
 </main>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () { /* offline support is optional */ });
+  });
+}
+</script>
 </body>
 </html>
