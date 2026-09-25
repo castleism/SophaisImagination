@@ -1,0 +1,24 @@
+{
+  "name": "Sophia's Imagination",
+  "short_name": "Sophia",
+  "description": "Impossible worlds, honestly synthetic. A fictional AI-created pop icon and muse.",
+  "start_url": "/install.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c1021",
+  "theme_color": "#0c1021",
+  "icons": [
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
