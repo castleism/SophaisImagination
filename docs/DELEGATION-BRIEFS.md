@@ -40,6 +40,15 @@ Status: ALL future work below is **[BLOCKED — OWNER]** to execute. Four public
 - Output: destination-appropriate platform crops plus web derivatives, with dimensions recorded in the private approved brief before execution.
 - Every batch needs owner review before joining the site catalog.
 
+## Brief 5 — Android packaging of the PWA (TWA) — NOT STARTED, OWNER DECISION FIRST
+
+**Deliverable:** only if the owner decides a Play Store listing is wanted. The site is now an installable PWA, which already covers "put it on my phone" without a store at all — the owner opens `https://sophais-imagination.com` on the device and chooses Install / Add to Home Screen. Do this first and confirm it is not sufficient before anyone builds an APK.
+
+- **Free / no-build route (recommended):** the installed PWA. No Play account, no signing key, no store review, no update lag. Icons, offline page, and standalone display are already in place.
+- **Store route (only on owner decision):** Bubblewrap (`@bubblewrap/cli`) or PWABuilder generates a Trusted Web Activity wrapper around the same origin. Requirements the executing model must not skip: a Play Console account, an upload signing key the owner controls and backs up, a `.well-known/assetlinks.json` file served from the apex with that key's SHA-256 fingerprint (without it the app shows a browser address bar), and a Play data-safety declaration.
+- **Store-listing honesty rules carry over unchanged:** the listing must state that Sophia is a fictional AI-created character and that the imagery is synthetic. Do not claim releases, results, sponsors, or collaborations that cannot be verified. Do not imply she is human.
+- **Cannot be done from the assistant environment:** no Android SDK, no `adb`, no device access. Both the install and any APK build are owner-side actions.
+
 ## Handoff protocol
 
 1. Owner approves a brief and provides accounts/licenses.
