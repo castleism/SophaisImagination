@@ -1,5 +1,9 @@
 # Changelog — sophais-imagination.com
 
+## 2026-09-26 — FIX: PWA DEPLOY WAS FAILING
+
+- The 2026-09-25 PWA push never went live: the Pages workflow's verifier failed with "Root public files missing from .pages-manifest: icon-192.png, icon-512.png". Those two root-level icons were unreferenced duplicates (the manifest, pages and service worker all use `/assets/icon-*.png`), so they were removed from the repository rather than published. `scripts/verify_site.py` passes.
+
 ## 2026-09-25 — LOCAL, UNRELEASED — INSTALLABLE PROGRESSIVE WEB APP
 
 - Added `manifest.webmanifest`, `sw.js`, and `offline.html`, plus a maskable and standard icon set at 192 and 512, and listed all three new files in `.pages-manifest`.
